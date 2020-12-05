@@ -1,4 +1,7 @@
 function foe_add_ship(size, flag) {
+    // clone the board and try random positions until you're able
+    // to add a ship unimpeded by both other ships and the confines
+    // of the game board
     while (true) {
         var orientation = choose(0, 90, 180, 270);
         var clone = board_clone(board_foe);
@@ -20,6 +23,8 @@ function foe_add_ship(size, flag) {
             test_x += dcos(orientation);
             test_y += -dsin(orientation);
         }
+        // Return a struct containing the position and rotation
+        // of each ship, one valid placement has been found
         if (valid) {
             board_foe = clone;
             return { x: pos_x, y: pos_y, rot: orientation };

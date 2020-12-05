@@ -18,6 +18,8 @@ for (var i = 0; i < GRID_SIZE; i++) {
     }
 }
 draw_text(base_x, base_y + j * base_h, "Foe");
+
+// debug draw ships at each position
 if (keyboard_check(vk_space)) {
     draw_sprite_ext(spr_ship_battleship, 0, base_x + foe_pos_battleship.x * base_w, base_y + foe_pos_battleship.y * base_h, 1, 1, foe_pos_battleship.rot, c_white, 1);
     draw_sprite_ext(spr_ship_carrier, 0, base_x + foe_pos_carrier.x * base_w, base_y + foe_pos_carrier.y * base_h, 1, 1, foe_pos_carrier.rot, c_white, 1);
