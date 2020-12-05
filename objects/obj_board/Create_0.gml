@@ -17,7 +17,15 @@ enum GridStates {
     SHIP_DESTROYER  = 0x08,
     SHIP_PATROL     = 0x10,
     SHIP_SUBMARINE  = 0x20,
+    _SIZE
 }
+
+ship_sprites = array_create(GridStates._SIZE, undefined);
+ship_sprites[GridStates.SHIP_BATTLESHIP] = spr_ship_battleship;
+ship_sprites[GridStates.SHIP_CARRIER] = spr_ship_carrier;
+ship_sprites[GridStates.SHIP_DESTROYER] = spr_ship_destroyer;
+ship_sprites[GridStates.SHIP_PATROL] = spr_ship_patrol;
+ship_sprites[GridStates.SHIP_SUBMARINE] = spr_ship_submarine;
 
 enum GameStates {
     SETUP,
@@ -25,6 +33,7 @@ enum GameStates {
 }
 
 game_state = GameStates.SETUP;
+setup_selected_ship = GridStates.EMPTY;
 
 board_player = array_create(GRID_SIZE);
 for (var i = 0; i < GRID_SIZE; i++) {

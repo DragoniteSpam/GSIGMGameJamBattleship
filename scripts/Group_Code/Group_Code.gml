@@ -40,3 +40,7 @@ function board_clone(board) {
     }
     return clone;
 }
+
+function mouse_in_rectangle(x, y, w, h) {
+    return point_in_rectangle(window_mouse_get_x(), window_mouse_get_y(), x, y, x + w, y + h);
+}

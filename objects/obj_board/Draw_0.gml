@@ -28,3 +28,18 @@ if (keyboard_check(vk_space)) {
     draw_sprite_ext(spr_ship_patrol, 0, base_x + foe_pos_patrol_a.x * base_w, base_y + foe_pos_patrol_a.y * base_h, 1, 1, foe_pos_patrol_a.rot, c_white, 1);
     draw_sprite_ext(spr_ship_submarine, 0, base_x + foe_pos_submarine.x * base_w, base_y + foe_pos_submarine.y * base_h, 1, 1, foe_pos_submarine.rot, c_white, 1);
 }
+
+if (game_state == GameStates.SETUP) {
+    var base_x = 64;
+    var base_y = 496;
+    draw_sprite(spr_ship_battleship, 0, base_x, base_y + 0 * base_h);
+    draw_sprite(spr_ship_carrier, 0, base_x, base_y + 1 * base_h);
+    draw_sprite(spr_ship_destroyer, 0, base_x, base_y + 2 * base_h);
+    draw_sprite(spr_ship_patrol, 0, base_x, base_y + 3 * base_h);
+    draw_sprite(spr_ship_patrol, 0, base_x, base_y + 4 * base_h);
+    draw_sprite(spr_ship_submarine, 0, base_x, base_y + 5 * base_h);
+    
+    if (setup_selected_ship != GridStates.EMPTY) {
+        draw_sprite(ship_sprites[setup_selected_ship], 0, window_mouse_get_x(), window_mouse_get_y());
+    }
+}
