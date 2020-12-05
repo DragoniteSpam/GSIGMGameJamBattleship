@@ -1,9 +1,11 @@
 function foe_add_ship(size, flag) {
     while (true) {
-        var orientation = choose([1, 0], [-1, 0], [0, 1], [0, -1]);
+        var orientation = choose(0, 90, 180, 270);
         var clone = board_clone(board_foe);
-        var test_x = irandom(GRID_SIZE);
-        var test_y = irandom(GRID_SIZE);
+        var pos_x = irandom(GRID_SIZE);
+        var pos_y = irandom(GRID_SIZE);
+        var test_x = pos_x;
+        var test_y = pos_y;
         var valid = true;
         for (var i = 0; i < size; i++) {
             if (test_x < 0 || test_x >= GRID_SIZE || test_y < 0 || test_y >= GRID_SIZE) {
@@ -15,12 +17,12 @@ function foe_add_ship(size, flag) {
                 break;
             }
             clone[test_x][test_y] = flag;
-            test_x += orientation[0];
-            test_y += orientation[1];
+            test_x += dcos(orientation);
+            test_y += -dsin(orientation);
         }
         if (valid) {
             board_foe = clone;
-            return;
+            return { x: pos_x, y: pos_y, rot: orientation };
         }
     }
 }
