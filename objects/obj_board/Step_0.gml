@@ -1,34 +1,74 @@
 if (game_state == GameStates.SETUP) {
     var base_x = 64;
+    var base_y = 96;
+    var base_w = 32;
+    var base_h = 32;
+    var off_x = -16;
+    var off_y = -16;
+    
+    if (mouse_in_rectangle(base_x, base_y, base_w * GRID_SIZE, base_h * GRID_SIZE)) {
+        if (setup_selected_ship != GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
+            var valid = true;
+            var start_x = (window_mouse_get_x() - base_x - off_x) div base_w;
+            var start_y = (window_mouse_get_y() - base_y - off_y) div base_h;
+            var test_x = start_x;
+            var test_y = start_y;
+            for (var i = 0; i < ship_sizes[setup_selected_ship]; i++) {
+                if (test_x < 0 || test_x >= GRID_SIZE || test_y < 0 || test_y >= GRID_SIZE) {
+                    valid = false;
+                    break;
+                }
+                if (board_player[test_x][test_y] != GridStates.EMPTY) {
+                    valid = false;
+                    break;
+                }
+                test_x += dcos(setup_selected_ship_orientation);
+                test_y += -dsin(setup_selected_ship_orientation);
+            }
+            if (valid) {
+                if (player_pos[setup_selected_ship]) {
+                    board_remove_ship(board_player, setup_selected_ship);
+                }
+                var test_x = start_x;
+                var test_y = start_y;
+                for (var i = 0; i < ship_sizes[setup_selected_ship]; i++) {
+                    board_player[test_x][test_y] = setup_selected_ship;
+                    test_x += dcos(setup_selected_ship_orientation);
+                    test_y += -dsin(setup_selected_ship_orientation);
+                }
+                player_pos[setup_selected_ship] = { x: start_x, y: start_y, rot: setup_selected_ship_orientation };
+                setup_selected_ship = GridStates.EMPTY;
+            }
+        }
+    }
+    
+    var base_x = 64;
     var base_y = 496;
     var base_w = 160;
     var base_h = 32;
-    if (mouse_in_rectangle(base_x, base_y + 0 * base_h, base_w, base_h)) {
+    var off_x = -16;
+    var off_y = -16;
+    if (mouse_in_rectangle(base_x + off_x, base_y + off_y + 0 * base_h, base_w, base_h)) {
         if (setup_selected_ship == GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
             setup_selected_ship = GridStates.SHIP_BATTLESHIP;
         }
-    }
-    if (mouse_in_rectangle(base_x, base_y + 1 * base_h, base_w, base_h)) {
+    } else if (mouse_in_rectangle(base_x + off_x, base_y + off_y + 1 * base_h, base_w, base_h)) {
         if (setup_selected_ship == GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
             setup_selected_ship = GridStates.SHIP_CARRIER;
         }
-    }
-    if (mouse_in_rectangle(base_x, base_y + 2 * base_h, base_w, base_h)) {
+    } else if (mouse_in_rectangle(base_x + off_x, base_y + off_y + 2 * base_h, base_w, base_h)) {
         if (setup_selected_ship == GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
             setup_selected_ship = GridStates.SHIP_DESTROYER;
         }
-    }
-    if (mouse_in_rectangle(base_x, base_y + 3 * base_h, base_w, base_h)) {
+    } else if (mouse_in_rectangle(base_x + off_x, base_y + off_y + 3 * base_h, base_w, base_h)) {
         if (setup_selected_ship == GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
-            setup_selected_ship = GridStates.SHIP_PATROL;
+            setup_selected_ship = GridStates.SHIP_PATROL_A;
         }
-    }
-    if (mouse_in_rectangle(base_x, base_y + 4 * base_h, base_w, base_h)) {
+    } else if (mouse_in_rectangle(base_x + off_x, base_y + off_y + 4 * base_h, base_w, base_h)) {
         if (setup_selected_ship == GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
-            setup_selected_ship = GridStates.SHIP_PATROL;
+            setup_selected_ship = GridStates.SHIP_PATROL_B;
         }
-    }
-    if (mouse_in_rectangle(base_x, base_y + 5 * base_h, base_w, base_h)) {
+    } else if (mouse_in_rectangle(base_x + off_x, base_y + off_y + 5 * base_h, base_w, base_h)) {
         if (setup_selected_ship == GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
             setup_selected_ship = GridStates.SHIP_SUBMARINE;
         }
