@@ -41,6 +41,15 @@ function board_clone(board) {
     return clone;
 }
 
+function board_remove_ship(board, ship) {
+    for (var i = 0; i < GRID_SIZE; i++) {
+        for (var j = 0; j < GRID_SIZE; j++) {
+            if (board[@ i][@ j]) show_debug_message([ship, " removed from ", i, j])
+            board[@ i][@ j] &= ~ship;
+        }
+    }
+}
+
 function mouse_in_rectangle(x, y, w, h) {
     return point_in_rectangle(window_mouse_get_x(), window_mouse_get_y(), x, y, x + w, y + h);
 }
