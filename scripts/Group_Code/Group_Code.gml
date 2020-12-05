@@ -1,4 +1,4 @@
-function foe_add_ship(size) {
+function foe_add_ship(size, flag) {
     while (true) {
         var orientation = choose([1, 0], [-1, 0], [0, 1], [0, -1]);
         var clone = board_clone(board_foe);
@@ -14,7 +14,7 @@ function foe_add_ship(size) {
                 valid = false;
                 break;
             }
-            clone[test_x][test_y] = GridStates.SHIP;
+            clone[test_x][test_y] = flag;
             test_x += orientation[0];
             test_y += orientation[1];
         }
