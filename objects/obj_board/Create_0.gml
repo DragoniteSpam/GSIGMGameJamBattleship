@@ -76,3 +76,5 @@ foe_pos[GridStates.SHIP_DESTROYER] = foe_add_ship(DESTORYER_SIZE, GridStates.SHI
 foe_pos[GridStates.SHIP_SUBMARINE] = foe_add_ship(SUBMARINE_SIZE, GridStates.SHIP_SUBMARINE);
 foe_pos[GridStates.SHIP_PATROL_A] = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_A);
 foe_pos[GridStates.SHIP_PATROL_B] = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_B);
+
+ai = new ShipAI();

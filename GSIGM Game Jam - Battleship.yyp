@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"Group_AI","path":"scripts/Group_AI/Group_AI.yy",},"order":27,},
     {"id":{"name":"obj_board","path":"objects/obj_board/obj_board.yy",},"order":15,},
     {"id":{"name":"spr_ship_battleship","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"order":20,},
     {"id":{"name":"spr_cell","path":"sprites/spr_cell/spr_cell.yy",},"order":17,},

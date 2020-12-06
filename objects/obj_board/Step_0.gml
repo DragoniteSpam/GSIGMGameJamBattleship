@@ -167,25 +167,19 @@ if (game_state == GameStates.PLAY_AI_TURN) {
             game_state_cooldown = -1;
         }
     } else {
-        while (true) {
-            var cx = irandom(GRID_SIZE - 1);
-            var cy = irandom(GRID_SIZE - 1);
-            if (!(board_player[cx][cy] & GridStates.SHOT)) {
-                board_player[cx][cy] |= GridStates.SHOT;
-                game_state_cooldown = ACTION_COOLDOWN;
-                var cell_label = string(cx + 1) + chr(ord("A") + cy);
-                var type = board_player[cx][cy] & GridStates.HIT_MASK;
-                if (type) {
-                    if (board_evaluate_ship(board_player, player_pos[type])) {
-                        game_state_status = "Hit and sunk at " + cell_label + "!";
-                    } else {
-                        game_state_status = "Hit at " + cell_label + "!";
-                    }
-                } else {
-                    game_state_status = "Miss at " + cell_label + "!";
-                }
-                break;
+        var target = ai.Act();
+        board_player[target.x][target.y] |= GridStates.SHOT;
+        game_state_cooldown = ACTION_COOLDOWN;
+        var cell_label = string(target.x + 1) + chr(ord("A") + target.y);
+        var type = board_player[target.x][target.y] & GridStates.HIT_MASK;
+        if (type) {
+            if (board_evaluate_ship(board_player, player_pos[type])) {
+                game_state_status = "Hit and sunk at " + cell_label + "!";
+            } else {
+                game_state_status = "Hit at " + cell_label + "!";
             }
+        } else {
+            game_state_status = "Miss at " + cell_label + "!";
         }
     }
     
