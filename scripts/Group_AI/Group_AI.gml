@@ -6,7 +6,7 @@ function ShipAIRandom(board, ships) constructor {
         while (true) {
             var cx = irandom(GRID_SIZE - 1);
             var cy = irandom(GRID_SIZE - 1);
-            if (!(board[cx][cy] & GridStates.SHOT)) {
+            if (board_valid_shot(board, cx, cy)) {
                 return { x: cx, y: cy };
             }
         }
@@ -20,13 +20,12 @@ function ShipAIBasic(board, ships) constructor {
     
     self.testHitData = function(x, y, owner) constructor {
         self.seek = choose(0, 90, 180, 270);
-        self.tracking = false;
         self.owner = owner;
         
         self.Position = function(x, y) {
             self.x = x;
             self.y = y;
-            self.target = self.owner.ships[self.owner.board[x][y] & GridStates.HIT_MASK];
+            self.target = self.owner.ships[@ self.owner.board[@ x][@ y] & GridStates.HIT_MASK];
         };
         
         self.Position(x, y);
@@ -34,62 +33,44 @@ function ShipAIBasic(board, ships) constructor {
     
     Act = function() {
         if (test_hit) {
-            if (test_hit.tracking) {
-                var cx = test_hit.x + dcos(test_hit.seek);
-                var cy = test_hit.y - dsin(test_hit.seek);
-                
-                if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
-                    if (!(board[cx][cy] & GridStates.SHOT)) {
-                        if (board[cx][cy] & GridStates.HIT_MASK) {
-                            test_hit.Position(cx, cy);
-                            if (board_evaluate_ship_test(board, test_hit.target, cx, cy)) {
-                                test_hit = undefined;
-                            }
-                            return { x: cx, y: cy };
-                        }
-                    }
-                }
-                
-                test_hit.seek += 180;
-                for (var i = 0; i < test_hit.target.size; i++) {
-                    var cx = test_hit.x + dcos(test_hit.seek);
-                    var cy = test_hit.y - dsin(test_hit.seek);
-                    if (!(board[cx][cy] & GridStates.SHOT)) {
-                        if (board_evaluate_ship_test(board, test_hit.target, cx, cy)) {
-                            test_hit = undefined;
-                        }
-                        return { x: cx, y: cy };
-                    }
-                    test_hit.Position(cx, cy);
-                }
-            }
             repeat (4) {
                 var cx = test_hit.x + dcos(test_hit.seek);
                 var cy = test_hit.y - dsin(test_hit.seek);
-                if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
-                    if (!(board[cx][cy] & GridStates.SHOT)) {
-                        if (board[cx][cy] & GridStates.HIT_MASK) {
-                            if (board_evaluate_ship_test(board, test_hit.target, cx, cy)) {
-                                test_hit = undefined;
-                            } else {
-                                test_hit.Position(cx, cy);
-                                test_hit.tracking = true;
-                            }
+                if (board_valid_shot(board, cx, cy)) {
+                    if (board_hit_ship(board, cx, cy)) {
+                        if (board_evaluate_ship_test(board, test_hit.target, cx, cy)) {
+                            test_hit = undefined;
                         } else {
-                            test_hit.seek += 180;
+                            test_hit.Position(cx, cy);
+                            var tx = cx + dcos(test_hit.seek);
+                            var ty = cy - dsin(test_hit.seek);
+                            if (!board_hit_ship(board, tx, ty)) {
+                                test_hit.seek += 180;
+                                repeat (GRID_SIZE) {
+                                    if (board_hit_ship(board, tx + dcos(test_hit.seek), ty - dsin(test_hit.seek))) {
+                                        test_hit.Position(tx, ty);
+                                        break;
+                                    }
+                                    tx += dcos(test_hit.seek);
+                                    ty -= dsin(test_hit.seek);
+                                }
+                            }
                         }
-                        return { x: cx, y: cy };
+                    } else {
+                        test_hit.seek += 90;
                     }
+                    return { x: cx, y: cy };
                 }
                 test_hit.seek += 90;
             }
         }
         
+        // start by firing randomly
         while (true) {
             var cx = irandom(GRID_SIZE - 1);
             var cy = irandom(GRID_SIZE - 1);
-            if (!(board[cx][cy] & GridStates.SHOT)) {
-                if (board[cx][cy] & GridStates.HIT_MASK) {
+            if (board_valid_shot(board, cx, cy)) {
+                if (board_hit_ship(board, cx, cy)) {
                     test_hit = new testHitData(cx, cy, self);
                 }
                 return { x: cx, y: cy };
