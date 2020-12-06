@@ -60,6 +60,19 @@ function board_evaluate(board) {
     return true;
 }
 
+function board_evaluate_ship(board, data) {
+    var sx = data.x;
+    var sy = data.y;
+    for (var si = 0; si < data.size; si++) {
+        if (!(board[@ sx][@ sy] & GridStates.SHOT)) {
+            var sunk = false;
+            break;
+        }
+        sx += dcos(data.rot);
+        sy += -dsin(data.rot);
+    }
+}
+
 function board_draw(board, x, y, w, h) {
     for (var i = 0; i < GRID_SIZE; i++) {
         for (var j = 0; j < GRID_SIZE; j++) {
