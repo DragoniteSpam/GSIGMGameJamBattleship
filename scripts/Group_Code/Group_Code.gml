@@ -63,7 +63,7 @@ function board_evaluate(board) {
 function board_evaluate_ship(board, data) {
     var sx = data.x;
     var sy = data.y;
-    for (var si = 0; si < ship_sizes[data.type]; si++) {
+    for (var si = 0; si < obj_board.ship_sizes[data.type]; si++) {
         if (!(board[@ sx][@ sy] & GridStates.SHOT)) {
             return false;
         }
@@ -71,6 +71,14 @@ function board_evaluate_ship(board, data) {
         sy += -dsin(data.rot);
     }
     return true;
+}
+
+function board_evaluate_ship_test(board, data, x, y) {
+    var original_flag = board[@ x][@ y];
+    board[@ x][@ y] |= GridStates.SHOT;
+    var result = board_evaluate_ship(board, data);
+    board[@ x][@ y] = original_flag;
+    return result;
 }
 
 function board_draw(board, x, y, w, h) {
