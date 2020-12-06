@@ -11,6 +11,7 @@
     {"id":{"name":"spr_ui_ready","path":"sprites/spr_ui_ready/spr_ui_ready.yy",},"order":25,},
     {"id":{"name":"spr_cell_shot","path":"sprites/spr_cell_shot/spr_cell_shot.yy",},"order":26,},
     {"id":{"name":"Group_Code","path":"scripts/Group_Code/Group_Code.yy",},"order":18,},
+    {"id":{"name":"shd_water","path":"shaders/shd_water/shd_water.yy",},"order":35,},
     {"id":{"name":"spr_ship_battleship","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"order":28,},
     {"id":{"name":"spr_ui_ship_set","path":"sprites/spr_ui_ship_set/spr_ui_ship_set.yy",},"order":24,},
     {"id":{"name":"spr_ship_submarine","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"order":33,},

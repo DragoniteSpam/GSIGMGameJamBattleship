@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 95,
+  "bbox_right": 31,
   "bbox_top": 0,
-  "bbox_bottom": 95,
+  "bbox_bottom": 31,
   "HTile": false,
   "VTile": false,
-  "For3D": false,
-  "width": 96,
-  "height": 96,
+  "For3D": true,
+  "width": 32,
+  "height": 32,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -26,6 +26,8 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"484e9d43-c3d8-4ed1-9ca9-a395fa9f7020","path":"sprites/spr_water_displace/spr_water_displace.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"484e9d43-c3d8-4ed1-9ca9-a395fa9f7020","path":"sprites/spr_water_displace/spr_water_displace.yy",},"LayerId":{"name":"28404967-2f62-48d2-bab9-adbb3c15d4b7","path":"sprites/spr_water_displace/spr_water_displace.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"484e9d43-c3d8-4ed1-9ca9-a395fa9f7020","path":"sprites/spr_water_displace/spr_water_displace.yy",},"LayerId":{"name":"8b8548c1-5421-4f72-8f4b-02471e0dd29b","path":"sprites/spr_water_displace/spr_water_displace.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"484e9d43-c3d8-4ed1-9ca9-a395fa9f7020","path":"sprites/spr_water_displace/spr_water_displace.yy",},"LayerId":{"name":"56fc18b1-ac5f-4c0d-acd5-ab8553d82cd0","path":"sprites/spr_water_displace/spr_water_displace.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_water_displace","path":"sprites/spr_water_displace/spr_water_displace.yy",},"resourceVersion":"1.0","name":"484e9d43-c3d8-4ed1-9ca9-a395fa9f7020","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
@@ -65,7 +67,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"28404967-2f62-48d2-bab9-adbb3c15d4b7","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"56fc18b1-ac5f-4c0d-acd5-ab8553d82cd0","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "GSIGM Game Jam - Battleship",
