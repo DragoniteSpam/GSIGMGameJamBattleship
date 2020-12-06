@@ -110,15 +110,6 @@ if (game_state == GameStates.PLAY_YOUR_TURN_PRE) {
 }
 
 if (game_state == GameStates.PLAY_YOUR_TURN) {
-    var base_x = 512;
-    var base_y = 96;
-    var base_w = sprite_get_width(spr_cell);
-    var base_h = sprite_get_height(spr_cell);
-    var off_x = 16;
-    var off_y = 16;
-    var cx = (window_mouse_get_x() - base_x + off_x) div base_w;
-    var cy = (window_mouse_get_y() - base_y + off_y) div base_h;
-    
     if (game_state_cooldown > -1) {
         game_state_cooldown -= DT;
         if (game_state_cooldown < 0) {
@@ -134,40 +125,24 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
         }
     } else {
         var target = ai_player.Act(board_foe);
-        if (board_player[@ target.x][@ target.y] & GridStates.HIT_MASK) {
-            audio_play_sound(se_kaboom, 1, false);
-        }
-        board_foe[@ target.x][@ target.y] |= GridStates.SHOT;
-        game_state_cooldown = ACTION_COOLDOWN;
-        var cell_label = string(target.x + 1) + chr(ord("A") + target.y);
-        var type = board_foe[@ target.x][@ target.y] & GridStates.HIT_MASK;
-        if (type) {
-            if (board_evaluate_ship(board_foe, foe_pos[@ type])) {
-                game_state_status = "Hit and sunk at " + cell_label + "!";
-            } else {
-                game_state_status = "Hit at " + cell_label + "!";
+        if (target) {
+            if (board_player[@ target.x][@ target.y] & GridStates.HIT_MASK) {
+                audio_play_sound(se_kaboom, 1, false);
             }
-        } else {
-            game_state_status = "Miss at " + cell_label + "!";
-        }
-        /*
-        if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
-            if (!(board_foe[cx][cy] & GridStates.SHOT) && mouse_check_button_pressed(mb_left)) {
-                board_foe[cx][cy] |= GridStates.SHOT;
-                var cell_label = string(cx + 1) + chr(ord("A") + cy);
-                var type = board_foe[cx][cy] & GridStates.HIT_MASK;
-                if (type) {
-                    if (board_evaluate_ship(board_foe, foe_pos[type])) {
-                        game_state_status = "Hit and sunk at " + cell_label + "!";
-                    } else {
-                        game_state_status = "Hit at " + cell_label + "!";
-                    }
+            board_foe[@ target.x][@ target.y] |= GridStates.SHOT;
+            game_state_cooldown = ACTION_COOLDOWN;
+            var cell_label = string(target.x + 1) + chr(ord("A") + target.y);
+            var type = board_foe[@ target.x][@ target.y] & GridStates.HIT_MASK;
+            if (type) {
+                if (board_evaluate_ship(board_foe, foe_pos[@ type])) {
+                    game_state_status = "You hit and sank " + cell_label + "!";
                 } else {
-                    game_state_status = "Miss at " + cell_label + "!";
+                    game_state_status = "You hit " + cell_label + "!";
                 }
-                game_state_cooldown = ACTION_COOLDOWN;
+            } else {
+                game_state_status = "You missed " + cell_label + "!";
             }
-        }*/
+        }
     }
     
     return;
@@ -200,21 +175,23 @@ if (game_state == GameStates.PLAY_AI_TURN) {
         }
     } else {
         var target = ai.Act();
-        if (board_player[@ target.x][@ target.y] & GridStates.HIT_MASK) {
-            audio_play_sound(se_kaboom, 1, false);
-        }
-        board_player[@ target.x][@ target.y] |= GridStates.SHOT;
-        game_state_cooldown = ACTION_COOLDOWN;
-        var cell_label = string(target.x + 1) + chr(ord("A") + target.y);
-        var type = board_player[@ target.x][@ target.y] & GridStates.HIT_MASK;
-        if (type) {
-            if (board_evaluate_ship(board_player, player_pos[@ type])) {
-                game_state_status = "Hit and sunk at " + cell_label + "!";
-            } else {
-                game_state_status = "Hit at " + cell_label + "!";
+            if (target) {
+            if (board_player[@ target.x][@ target.y] & GridStates.HIT_MASK) {
+                audio_play_sound(se_kaboom, 1, false);
             }
-        } else {
-            game_state_status = "Miss at " + cell_label + "!";
+            board_player[@ target.x][@ target.y] |= GridStates.SHOT;
+            game_state_cooldown = ACTION_COOLDOWN;
+            var cell_label = string(target.x + 1) + chr(ord("A") + target.y);
+            var type = board_player[@ target.x][@ target.y] & GridStates.HIT_MASK;
+            if (type) {
+                if (board_evaluate_ship(board_player, player_pos[@ type])) {
+                    game_state_status = "Foe hit and sank " + cell_label + "!";
+                } else {
+                    game_state_status = "Foe hit " + cell_label + "!";
+                }
+            } else {
+                game_state_status = "Foe missed " + cell_label + "!";
+            }
         }
     }
     

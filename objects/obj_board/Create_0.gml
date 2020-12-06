@@ -79,4 +79,4 @@ foe_pos[GridStates.SHIP_PATROL_A] = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PA
 foe_pos[GridStates.SHIP_PATROL_B] = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_B);
 
 ai = new ShipAIBasic(board_player, player_pos);
-ai_player = new ShipAIBasic(board_foe, foe_pos);
+ai_player = new ShipAIPlayer(board_foe, foe_pos);
