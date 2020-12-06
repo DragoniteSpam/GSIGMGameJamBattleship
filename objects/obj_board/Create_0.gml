@@ -7,6 +7,8 @@ randomize();
 #macro SUBMARINE_SIZE 3
 #macro PATROL_SIZE 2
 
+#macro DEBUG true
+
 // grid states will be a mask composed of the "shot" state and
 // ship type; 0x11, for example, will denote "shot patrol boat"
 enum GridStates {
