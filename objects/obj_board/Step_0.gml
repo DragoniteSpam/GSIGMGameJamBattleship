@@ -122,15 +122,16 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
         if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
             if (!(board_foe[cx][cy] & GridStates.SHOT) && mouse_check_button_pressed(mb_left)) {
                 board_foe[cx][cy] |= GridStates.SHOT;
+                var cell_label = string(cx + 1) + chr(ord("A") + cy);
                 if (board_foe[cx][cy] & GridStates.HIT_MASK) {
                     /* hit and sunk */
                     if (false) {
-                        game_state_status = "Hit and sunk at " + string(cx) + string(cy) + "!";
+                        game_state_status = "Hit and sunk at " + cell_label + "!";
                     } else {
-                        game_state_status = "Hit at " + string(cx) + string(cy) + "!";
+                        game_state_status = "Hit at " + cell_label + "!";
                     }
                 } else {
-                    game_state_status = "Miss at " + string(cx) + string(cy) + "!";
+                    game_state_status = "Miss at " + cell_label + "!";
                 }
                 game_state_cooldown = ACTION_COOLDOWN;
             }
@@ -172,15 +173,16 @@ if (game_state == GameStates.PLAY_AI_TURN) {
             if (!(board_player[cx][cy] & GridStates.SHOT)) {
                 board_player[cx][cy] |= GridStates.SHOT;
                 game_state_cooldown = ACTION_COOLDOWN;
+                var cell_label = string(cx + 1) + chr(ord("A") + cy);
                 if (board_player[cx][cy] & GridStates.HIT_MASK) {
                     /* hit and sunk */
                     if (false) {
-                        game_state_status = "Hit and sunk at " + string(cx) + string(cy) + "!";
+                        game_state_status = "Hit and sunk at " + cell_label + "!";
                     } else {
-                        game_state_status = "Hit at " + string(cx) + string(cy) + "!";
+                        game_state_status = "Hit at " + cell_label + "!";
                     }
                 } else {
-                    game_state_status = "Miss at " + string(cx) + string(cy) + "!";
+                    game_state_status = "Miss at " + cell_label + "!";
                 }
                 break;
             }
