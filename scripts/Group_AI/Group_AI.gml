@@ -47,7 +47,7 @@ function ShipAIBasic(board, ships) constructor {
                             if (!board_hit_ship(board, tx, ty)) {
                                 test_hit.seek += 180;
                                 var tx = cx;
-                                var ty = cy;
+                                var ty = cy ;
                                 repeat (GRID_SIZE) {
                                     if (board_hit_ship(board, tx + dcos(test_hit.seek), ty - dsin(test_hit.seek))) {
                                         test_hit.Position(tx, ty);

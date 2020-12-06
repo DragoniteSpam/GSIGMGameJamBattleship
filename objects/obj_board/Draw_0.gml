@@ -4,7 +4,7 @@ gpu_set_tex_filter(true);
 shader_set(shd_water);
 shader_set_uniform_f(shader_get_uniform(shd_water, "time"), current_time / 1000);
 texture_set_stage(shader_get_sampler_index(shd_water, "displacementMap"), sprite_get_texture(spr_water_displace, 0));
-draw_sprite_tiled_ext(spr_water, 0, 0, 0, 1.5, 1.5, c_white, 1);
+draw_sprite_tiled_ext(spr_water, 0, 0, 0, 3, 3, c_white, 1);
 shader_reset();
 gpu_set_tex_filter(false);
 
