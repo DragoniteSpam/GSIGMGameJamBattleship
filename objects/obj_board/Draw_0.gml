@@ -39,14 +39,34 @@ if (keyboard_check(vk_space)) {
 if (game_state == GameStates.SETUP) {
     var base_x = 64;
     var base_y = 496;
-    draw_sprite(spr_ship_battleship, 0, base_x, base_y + 0 * base_h);
-    draw_sprite(spr_ship_carrier, 0, base_x, base_y + 1 * base_h);
-    draw_sprite(spr_ship_destroyer, 0, base_x, base_y + 2 * base_h);
-    draw_sprite(spr_ship_patrol, 0, base_x, base_y + 3 * base_h);
-    draw_sprite(spr_ship_patrol, 0, base_x, base_y + 4 * base_h);
-    draw_sprite(spr_ship_submarine, 0, base_x, base_y + 5 * base_h);
+    var off_x = 32;
+    var off_y = 0;
+    draw_sprite(spr_ship_battleship, 0, base_x + off_x, base_y + off_y + 0 * base_h);
+    draw_sprite(spr_ship_carrier, 0, base_x + off_x, base_y + off_y + 1 * base_h);
+    draw_sprite(spr_ship_destroyer, 0, base_x + off_x, base_y + off_y + 2 * base_h);
+    draw_sprite(spr_ship_patrol, 0, base_x + off_x, base_y + off_y + 3 * base_h);
+    draw_sprite(spr_ship_patrol, 0, base_x + off_x, base_y + off_y + 4 * base_h);
+    draw_sprite(spr_ship_submarine, 0, base_x + off_x, base_y + off_y + 5 * base_h);
+    
+    var ready = true;
+    if (player_pos[GridStates.SHIP_BATTLESHIP]) draw_sprite(spr_ui_ship_set, 0, base_x, base_y + off_y + 0 * base_h);
+    else ready = false;
+    if (player_pos[GridStates.SHIP_CARRIER]) draw_sprite(spr_ui_ship_set, 0, base_x, base_y + off_y + 1 * base_h);
+    else ready = false;
+    if (player_pos[GridStates.SHIP_DESTROYER]) draw_sprite(spr_ui_ship_set, 0, base_x, base_y + off_y + 2 * base_h);
+    else ready = false;
+    if (player_pos[GridStates.SHIP_PATROL_A]) draw_sprite(spr_ui_ship_set, 0, base_x, base_y + off_y + 3 * base_h);
+    else ready = false;
+    if (player_pos[GridStates.SHIP_PATROL_B]) draw_sprite(spr_ui_ship_set, 0, base_x, base_y + off_y + 4 * base_h);
+    else ready = false;
+    if (player_pos[GridStates.SHIP_SUBMARINE]) draw_sprite(spr_ui_ship_set, 0, base_x, base_y + off_y + 5 * base_h);
+    else ready = false;
     
     if (setup_selected_ship != GridStates.EMPTY) {
         draw_sprite(ship_sprites[setup_selected_ship], 0, window_mouse_get_x(), window_mouse_get_y());
+    }
+    
+    if (ready) {
+        draw_sprite(spr_ui_ready, 0, base_x, base_y + 6 * base_h);
     }
 }

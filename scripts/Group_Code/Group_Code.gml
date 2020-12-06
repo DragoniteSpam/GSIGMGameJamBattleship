@@ -44,7 +44,6 @@ function board_clone(board) {
 function board_remove_ship(board, ship) {
     for (var i = 0; i < GRID_SIZE; i++) {
         for (var j = 0; j < GRID_SIZE; j++) {
-            if (board[@ i][@ j]) show_debug_message([ship, " removed from ", i, j])
             board[@ i][@ j] &= ~ship;
         }
     }

@@ -46,7 +46,7 @@ if (game_state == GameStates.SETUP) {
     var base_y = 496;
     var base_w = 160;
     var base_h = 32;
-    var off_x = -16;
+    var off_x = -16 + 32;
     var off_y = -16;
     if (mouse_in_rectangle(base_x + off_x, base_y + off_y + 0 * base_h, base_w, base_h)) {
         if (setup_selected_ship == GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
@@ -72,5 +72,17 @@ if (game_state == GameStates.SETUP) {
         if (setup_selected_ship == GridStates.EMPTY && mouse_check_button_pressed(mb_left)) {
             setup_selected_ship = GridStates.SHIP_SUBMARINE;
         }
+    }
+    
+    var ready = true;
+    if (!player_pos[GridStates.SHIP_BATTLESHIP]) ready = false;
+    if (!player_pos[GridStates.SHIP_CARRIER]) ready = false;
+    if (!player_pos[GridStates.SHIP_DESTROYER]) ready = false;
+    if (!player_pos[GridStates.SHIP_PATROL_A]) ready = false;
+    if (!player_pos[GridStates.SHIP_PATROL_B]) ready = false;
+    if (!player_pos[GridStates.SHIP_SUBMARINE]) ready = false;
+    
+    if (ready && mouse_in_rectangle(base_x, base_y + 6 * base_h, base_w, base_h) && mouse_check_button_pressed(mb_left)) {
+        
     }
 }
