@@ -104,8 +104,11 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
     var cy = (window_mouse_get_y() - base_y + off_y) div base_h;
     
     if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
-        if (mouse_check_button_pressed(mb_left)) {
-            
+        if (!(board_foe[cx][cy] & GridStates.SHOT) && mouse_check_button_pressed(mb_left)) {
+            board_foe[cx][cy] |= GridStates.SHOT;
+            if (board_foe[cx][cy] & GridStates.HIT_MASK) {
+                // inform the player, probably
+            }
         }
     }
 }

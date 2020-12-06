@@ -23,11 +23,24 @@ if (player_pos[GridStates.SHIP_PATROL_A])draw_sprite_ext(spr_ship_patrol, 0, bas
 if (player_pos[GridStates.SHIP_PATROL_B])draw_sprite_ext(spr_ship_patrol, 0, base_x + player_pos[GridStates.SHIP_PATROL_B].x * base_w, base_y + player_pos[GridStates.SHIP_PATROL_B].y * base_h, 1, 1, player_pos[GridStates.SHIP_PATROL_B].rot, c_white, 1);
 if (player_pos[GridStates.SHIP_SUBMARINE])draw_sprite_ext(spr_ship_submarine, 0, base_x + player_pos[GridStates.SHIP_SUBMARINE].x * base_w, base_y + player_pos[GridStates.SHIP_SUBMARINE].y * base_h, 1, 1, player_pos[GridStates.SHIP_SUBMARINE].rot, c_white, 1);
 
+for (var i = 0; i < GRID_SIZE; i++) {
+    for (var j = 0; j < GRID_SIZE; j++) {
+        if (board_player[i][j] & GridStates.SHOT) {
+            var damaged = board_player[i][j] & GridStates.HIT_MASK;
+            draw_sprite(spr_cell_shot, damaged, base_x + i * base_w, base_y + j * base_h);
+        }
+    }
+}
+
 var base_x = 512;
 var base_y = 96;
 for (var i = 0; i < GRID_SIZE; i++) {
     for (var j = 0; j < GRID_SIZE; j++) {
         draw_sprite(spr_cell, 0, base_x + i * base_w, base_y + j * base_h);
+        if (board_foe[i][j] & GridStates.SHOT) {
+            var damaged = !!(board_foe[i][j] & GridStates.HIT_MASK);
+            draw_sprite(spr_cell_shot, damaged, base_x + i * base_w, base_y + j * base_h);
+        }
     }
 }
 draw_text(base_x, base_y + j * base_h, "Foe");
@@ -37,7 +50,10 @@ if (DEBUG) {
     var base_y = 96;
     for (var i = 0; i < GRID_SIZE; i++) {
         for (var j = 0; j < GRID_SIZE; j++) {
-            draw_sprite(spr_cell, board_foe[i][j] != GridStates.EMPTY, base_x + i * base_w, base_y + j * base_h);
+            draw_sprite(spr_cell, 0, base_x + i * base_w, base_y + j * base_h);
+            if (board_foe[i][j] != GridStates.EMPTY) {
+                draw_sprite(spr_cell_shot, 0, base_x + i * base_w, base_y + j * base_h);
+            }
         }
     }
     draw_text(base_x, base_y + j * base_h, "Foe (debug)");

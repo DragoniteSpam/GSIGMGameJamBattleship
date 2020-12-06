@@ -20,6 +20,7 @@ enum GridStates {
     SHIP_PATROL_A   = 0x10,
     SHIP_PATROL_B   = 0x20,
     SHIP_SUBMARINE  = 0x40,
+    HIT_MASK        = 0xfe,
     _SIZE
 }
 
