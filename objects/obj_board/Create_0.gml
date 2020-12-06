@@ -8,6 +8,8 @@ randomize();
 #macro PATROL_SIZE 2
 
 #macro DEBUG true
+#macro DT (delta_time / 1000000)
+#macro ACTION_COOLDOWN 2
 
 // grid states will be a mask composed of the "shot" state and
 // ship type; 0x11, for example, will denote "shot patrol boat"
@@ -44,11 +46,14 @@ enum GameStates {
     SETUP,
     PLAY_YOUR_TURN,
     PLAY_AI_TURN,
+    PLAY_AI_TURN_PRE,
     GAMEOVER_YOU_WIN,
     GAMEOVER_AI_WIN,
 }
 
 game_state = GameStates.SETUP;
+game_state_cooldown = -1;
+game_state_status = "Place your battleships!";
 setup_selected_ship = GridStates.EMPTY;
 setup_selected_ship_orientation = 0;
 

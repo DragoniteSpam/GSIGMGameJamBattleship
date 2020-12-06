@@ -90,6 +90,7 @@ if (game_state == GameStates.SETUP) {
     
     if (ready && mouse_in_rectangle(base_x, base_y + 6 * base_h, base_w, base_h) && mouse_check_button_pressed(mb_left)) {
         game_state = GameStates.PLAY_YOUR_TURN;
+        game_state_status = "Take your turn!";
     }
     
     return;
@@ -105,16 +106,33 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
     var cx = (window_mouse_get_x() - base_x + off_x) div base_w;
     var cy = (window_mouse_get_y() - base_y + off_y) div base_h;
     
-    if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
-        if (!(board_foe[cx][cy] & GridStates.SHOT) && mouse_check_button_pressed(mb_left)) {
-            board_foe[cx][cy] |= GridStates.SHOT;
-            if (board_foe[cx][cy] & GridStates.HIT_MASK) {
-                // inform the player, probably
-            }
+    if (game_state_cooldown > -1) {
+        game_state_cooldown -= DT;
+        if (game_state_cooldown < 0) {
             if (board_evaluate(board_foe)) {
                 game_state = GameStates.GAMEOVER_YOU_WIN;
+                game_state_status = "You win!";
             } else {
-                game_state = GameStates.PLAY_AI_TURN;
+                game_state = GameStates.PLAY_AI_TURN_PRE;
+                game_state_status = "The AI is taking their turn!";
+            }
+            game_state_cooldown = -1;
+        }
+    } else {
+        if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
+            if (!(board_foe[cx][cy] & GridStates.SHOT) && mouse_check_button_pressed(mb_left)) {
+                board_foe[cx][cy] |= GridStates.SHOT;
+                if (board_foe[cx][cy] & GridStates.HIT_MASK) {
+                    /* hit and sunk */
+                    if (false) {
+                        game_state_status = "Hit and sunk at " + string(cx) + string(cy) + "!";
+                    } else {
+                        game_state_status = "Hit at " + string(cx) + string(cy) + "!";
+                    }
+                } else {
+                    game_state_status = "Miss at " + string(cx) + string(cy) + "!";
+                }
+                game_state_cooldown = ACTION_COOLDOWN;
             }
         }
     }
@@ -122,18 +140,50 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
     return;
 }
 
+if (game_state == GameStates.PLAY_AI_TURN_PRE) {
+    if (game_state_cooldown > -1) {
+        game_state_cooldown -= DT;
+        if (game_state_cooldown < 0) {
+            game_state = GameStates.PLAY_AI_TURN;
+            game_state_cooldown = -1;
+        }
+    } else {
+        game_state_cooldown = ACTION_COOLDOWN;
+    }
+}
+
 if (game_state == GameStates.PLAY_AI_TURN) {
-    while (true) {
-        var cx = irandom(GRID_SIZE - 1);
-        var cy = irandom(GRID_SIZE - 1);
-        if (!(board_player[cx][cy] & GridStates.SHOT)) {
-            board_player[cx][cy] |= GridStates.SHOT;
+    if (game_state_cooldown > -1) {
+        game_state_cooldown -= DT;
+        if (game_state_cooldown < 0) {
             if (board_evaluate(board_player)) {
-                game_state = GameStates.GAMEOVER_YOU_WIN;
+                game_state = GameStates.GAMEOVER_AI_WIN;
+                game_state_status = "You have lost!";
             } else {
                 game_state = GameStates.PLAY_YOUR_TURN;
+                game_state_status = "Take your turn!";
             }
-            break;
+            game_state_cooldown = -1;
+        }
+    } else {
+        while (true) {
+            var cx = irandom(GRID_SIZE - 1);
+            var cy = irandom(GRID_SIZE - 1);
+            if (!(board_player[cx][cy] & GridStates.SHOT)) {
+                board_player[cx][cy] |= GridStates.SHOT;
+                game_state_cooldown = ACTION_COOLDOWN;
+                if (board_player[cx][cy] & GridStates.HIT_MASK) {
+                    /* hit and sunk */
+                    if (false) {
+                        game_state_status = "Hit and sunk at " + string(cx) + string(cy) + "!";
+                    } else {
+                        game_state_status = "Hit at " + string(cx) + string(cy) + "!";
+                    }
+                } else {
+                    game_state_status = "Miss at " + string(cx) + string(cy) + "!";
+                }
+                break;
+            }
         }
     }
     

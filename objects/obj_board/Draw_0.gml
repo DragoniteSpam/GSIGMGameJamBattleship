@@ -1,10 +1,4 @@
-switch (game_state) {
-    case GameStates.SETUP:              draw_text(32, 32, "Assign your pieces!"); break;
-    case GameStates.PLAY_YOUR_TURN:     draw_text(32, 32, "Attack your foe!"); break;
-    case GameStates.PLAY_AI_TURN:       draw_text(32, 32, "The foe is attacking you!"); break;
-    case GameStates.GAMEOVER_YOU_WIN:   draw_text(32, 32, "You have won!"); break;
-    case GameStates.GAMEOVER_YOU_LOSE:  draw_text(32, 32, "You have lost =/"); break;
-}
+draw_text(32, 32, game_state_status);
 
 var base_x = 64;
 var base_y = 96;
