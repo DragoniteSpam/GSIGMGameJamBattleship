@@ -27,7 +27,7 @@ function foe_add_ship(size, flag) {
         // of each ship, one valid placement has been found
         if (valid) {
             board_foe = clone;
-            return { x: pos_x, y: pos_y, rot: orientation };
+            return { x: pos_x, y: pos_y, rot: orientation, size: size };
         }
     }
 }

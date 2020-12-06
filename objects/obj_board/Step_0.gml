@@ -36,7 +36,7 @@ if (game_state == GameStates.SETUP) {
                     test_x += dcos(setup_selected_ship_orientation);
                     test_y += -dsin(setup_selected_ship_orientation);
                 }
-                player_pos[setup_selected_ship] = { x: start_x, y: start_y, rot: setup_selected_ship_orientation };
+                player_pos[setup_selected_ship] = { x: start_x, y: start_y, rot: setup_selected_ship_orientation, size: ship_sizes[setup_selected_ship] };
                 setup_selected_ship = GridStates.EMPTY;
             }
         }
@@ -123,9 +123,10 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
             if (!(board_foe[cx][cy] & GridStates.SHOT) && mouse_check_button_pressed(mb_left)) {
                 board_foe[cx][cy] |= GridStates.SHOT;
                 var cell_label = string(cx + 1) + chr(ord("A") + cy);
-                if (board_foe[cx][cy] & GridStates.HIT_MASK) {
-                    /* hit and sunk */
-                    if (false) {
+                var type = board_foe[cx][cy] & GridStates.HIT_MASK;
+                if (type) {
+                    var sunk = true;
+                    if (sunk) {
                         game_state_status = "Hit and sunk at " + cell_label + "!";
                     } else {
                         game_state_status = "Hit at " + cell_label + "!";
@@ -174,7 +175,8 @@ if (game_state == GameStates.PLAY_AI_TURN) {
                 board_player[cx][cy] |= GridStates.SHOT;
                 game_state_cooldown = ACTION_COOLDOWN;
                 var cell_label = string(cx + 1) + chr(ord("A") + cy);
-                if (board_player[cx][cy] & GridStates.HIT_MASK) {
+                var type = board_player[cx][cy] & GridStates.HIT_MASK;
+                if (type) {
                     /* hit and sunk */
                     if (false) {
                         game_state_status = "Hit and sunk at " + cell_label + "!";
