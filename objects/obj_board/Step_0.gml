@@ -92,3 +92,20 @@ if (game_state == GameStates.SETUP) {
         game_state = GameStates.PLAY_YOUR_TURN;
     }
 }
+
+if (game_state == GameStates.PLAY_YOUR_TURN) {
+    var base_x = 512;
+    var base_y = 96;
+    var base_w = sprite_get_width(spr_cell);
+    var base_h = sprite_get_height(spr_cell);
+    var off_x = 16;
+    var off_y = 16;
+    var cx = (window_mouse_get_x() - base_x + off_x) div base_w;
+    var cy = (window_mouse_get_y() - base_y + off_y) div base_h;
+    
+    if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
+        if (mouse_check_button_pressed(mb_left)) {
+            
+        }
+    }
+}
