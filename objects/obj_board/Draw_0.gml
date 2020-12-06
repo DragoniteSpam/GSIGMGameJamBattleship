@@ -84,6 +84,30 @@ if (game_state == GameStates.SETUP) {
     if (ready) {
         draw_sprite(spr_ui_ready, 0, base_x, base_y + 6 * base_h);
     } else {
-        draw_text(base_x, base_y + 6 * base_h, "scroll the mouse wheel to rotate your ship");
+        draw_text(base_x, base_y + 6 * base_h, "scroll the mouse wheel to rotate ship");
     }
 }
+
+var base_x = 512;
+var base_y = 480;
+var status_w = 720;
+var status_h = 240;
+var off_x = 16;
+var off_y = 40;
+var log_h = 24;
+draw_set_alpha(0.5);
+draw_rectangle(base_x, base_y, base_x + status_w, base_y + status_h, false);
+draw_set_alpha(1);
+draw_rectangle(base_x, base_y, base_x + status_w, base_y + status_h, true);
+draw_rectangle(base_x + 1, base_y + 1, base_x + status_w - 1, base_y + status_h - 1, true);
+
+draw_set_colour(0x3399ff);
+var index = 0;
+for (var i = ds_list_size(game_status_logs) - 1; i >= 0; i--) {
+    draw_text(base_x + off_x, base_y + status_h - off_y - log_h * index++, game_status_logs[| i]);
+    draw_set_colour(c_white);
+    if (index >= 8) break;
+}
+draw_set_colour(0x3399ff);
+draw_text(base_x + off_x, base_y + status_h - off_y - log_h * index++, "Combat Log:");
+draw_set_colour(c_black);
