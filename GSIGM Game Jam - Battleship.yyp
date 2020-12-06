@@ -8,6 +8,7 @@
     {"id":{"name":"spr_ship_patrol","path":"sprites/spr_ship_patrol/spr_ship_patrol.yy",},"order":32,},
     {"id":{"name":"obj_board","path":"objects/obj_board/obj_board.yy",},"order":15,},
     {"id":{"name":"spr_cell","path":"sprites/spr_cell/spr_cell.yy",},"order":17,},
+    {"id":{"name":"se_kaboom","path":"sounds/se_kaboom/se_kaboom.yy",},"order":36,},
     {"id":{"name":"spr_ui_ready","path":"sprites/spr_ui_ready/spr_ui_ready.yy",},"order":25,},
     {"id":{"name":"spr_cell_shot","path":"sprites/spr_cell_shot/spr_cell_shot.yy",},"order":26,},
     {"id":{"name":"Group_Code","path":"scripts/Group_Code/Group_Code.yy",},"order":18,},

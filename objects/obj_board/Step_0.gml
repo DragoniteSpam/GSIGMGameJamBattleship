@@ -134,6 +134,9 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
         }
     } else {
         var target = ai_player.Act(board_foe);
+        if (board_player[@ target.x][@ target.y] & GridStates.HIT_MASK) {
+            audio_play_sound(se_kaboom, 1, false);
+        }
         board_foe[@ target.x][@ target.y] |= GridStates.SHOT;
         game_state_cooldown = ACTION_COOLDOWN;
         var cell_label = string(target.x + 1) + chr(ord("A") + target.y);
@@ -197,6 +200,9 @@ if (game_state == GameStates.PLAY_AI_TURN) {
         }
     } else {
         var target = ai.Act();
+        if (board_player[@ target.x][@ target.y] & GridStates.HIT_MASK) {
+            audio_play_sound(se_kaboom, 1, false);
+        }
         board_player[@ target.x][@ target.y] |= GridStates.SHOT;
         game_state_cooldown = ACTION_COOLDOWN;
         var cell_label = string(target.x + 1) + chr(ord("A") + target.y);
