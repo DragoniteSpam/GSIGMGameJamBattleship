@@ -27,7 +27,7 @@ function foe_add_ship(size, flag) {
         // of each ship, one valid placement has been found
         if (valid) {
             board_foe = clone;
-            return { x: pos_x, y: pos_y, rot: orientation, size: size };
+            return { x: pos_x, y: pos_y, rot: orientation, type: flag };
         }
     }
 }
@@ -63,7 +63,7 @@ function board_evaluate(board) {
 function board_evaluate_ship(board, data) {
     var sx = data.x;
     var sy = data.y;
-    for (var si = 0; si < data.size; si++) {
+    for (var si = 0; si < ship_sizes[data.type]; si++) {
         if (!(board[@ sx][@ sy] & GridStates.SHOT)) {
             return false;
         }
