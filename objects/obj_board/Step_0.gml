@@ -36,7 +36,7 @@ if (game_state == GameStates.SETUP) {
                     test_x += dcos(setup_selected_ship_orientation);
                     test_y += -dsin(setup_selected_ship_orientation);
                 }
-                player_pos[setup_selected_ship] = { x: start_x, y: start_y, rot: setup_selected_ship_orientation, type: setup_selected_ship };
+                player_pos[setup_selected_ship] = { x: start_x, y: start_y, rot: setup_selected_ship_orientation, type: setup_selected_ship, size: ship_sizes[setup_selected_ship] };
                 setup_selected_ship = GridStates.EMPTY;
             }
         }
