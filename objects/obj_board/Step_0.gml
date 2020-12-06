@@ -89,11 +89,24 @@ if (game_state == GameStates.SETUP) {
     if (!player_pos[GridStates.SHIP_SUBMARINE]) ready = false;
     
     if (ready && mouse_in_rectangle(base_x, base_y + 6 * base_h, base_w, base_h) && mouse_check_button_pressed(mb_left)) {
-        game_state = GameStates.PLAY_YOUR_TURN;
-        game_state_status = "Take your turn!";
+        game_state = GameStates.PLAY_YOUR_TURN_PRE;
+        game_state_status = "Take the first turn!";
     }
     
     return;
+}
+
+if (game_state == GameStates.PLAY_YOUR_TURN_PRE) {
+    if (game_state_cooldown > -1) {
+        game_state_cooldown -= DT;
+        if (game_state_cooldown < 0) {
+            game_state = GameStates.PLAY_YOUR_TURN;
+            game_state_cooldown = -1;
+            game_state_status = "Where will you attack?";
+        }
+    } else {
+        game_state_cooldown = ACTION_COOLDOWN;
+    }
 }
 
 if (game_state == GameStates.PLAY_YOUR_TURN) {
@@ -161,8 +174,8 @@ if (game_state == GameStates.PLAY_AI_TURN) {
                 game_state = GameStates.GAMEOVER_AI_WIN;
                 game_state_status = "You have lost!";
             } else {
-                game_state = GameStates.PLAY_YOUR_TURN;
-                game_state_status = "Take your turn!";
+                game_state = GameStates.PLAY_YOUR_TURN_PRE;
+                game_state_status = "It's your turn!";
             }
             game_state_cooldown = -1;
         }

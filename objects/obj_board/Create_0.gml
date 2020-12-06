@@ -45,6 +45,7 @@ ship_sizes[GridStates.SHIP_SUBMARINE] = SUBMARINE_SIZE;
 enum GameStates {
     SETUP,
     PLAY_YOUR_TURN,
+    PLAY_YOUR_TURN_PRE,
     PLAY_AI_TURN,
     PLAY_AI_TURN_PRE,
     GAMEOVER_YOU_WIN,
