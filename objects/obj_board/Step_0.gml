@@ -128,6 +128,8 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
         if (target) {
             if (board_foe[@ target.x][@ target.y] & GridStates.HIT_MASK) {
                 audio_play_sound(se_kaboom, 1, false);
+            } else {
+                audio_play_sound(se_splash, 1, false);
             }
             board_foe[@ target.x][@ target.y] |= GridStates.SHOT;
             game_state_cooldown = ACTION_COOLDOWN;
@@ -178,6 +180,8 @@ if (game_state == GameStates.PLAY_AI_TURN) {
             if (target) {
             if (board_player[@ target.x][@ target.y] & GridStates.HIT_MASK) {
                 audio_play_sound(se_kaboom, 1, false);
+            } else {
+                audio_play_sound(se_splash, 1, false);
             }
             board_player[@ target.x][@ target.y] |= GridStates.SHOT;
             game_state_cooldown = ACTION_COOLDOWN;

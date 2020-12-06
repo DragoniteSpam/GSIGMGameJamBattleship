@@ -1,0 +1,1 @@
+audio_play_sound(se_ambience02, 0.5, true);
