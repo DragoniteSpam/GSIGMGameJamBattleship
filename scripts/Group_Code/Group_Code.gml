@@ -65,12 +65,12 @@ function board_evaluate_ship(board, data) {
     var sy = data.y;
     for (var si = 0; si < data.size; si++) {
         if (!(board[@ sx][@ sy] & GridStates.SHOT)) {
-            var sunk = false;
-            break;
+            return false;
         }
         sx += dcos(data.rot);
         sy += -dsin(data.rot);
     }
+    return true;
 }
 
 function board_draw(board, x, y, w, h) {

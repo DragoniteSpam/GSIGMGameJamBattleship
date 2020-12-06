@@ -125,8 +125,7 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
                 var cell_label = string(cx + 1) + chr(ord("A") + cy);
                 var type = board_foe[cx][cy] & GridStates.HIT_MASK;
                 if (type) {
-                    var sunk = true;
-                    if (sunk) {
+                    if (board_evaluate_ship(board_foe, foe_pos[type])) {
                         game_state_status = "Hit and sunk at " + cell_label + "!";
                     } else {
                         game_state_status = "Hit at " + cell_label + "!";
@@ -177,8 +176,7 @@ if (game_state == GameStates.PLAY_AI_TURN) {
                 var cell_label = string(cx + 1) + chr(ord("A") + cy);
                 var type = board_player[cx][cy] & GridStates.HIT_MASK;
                 if (type) {
-                    /* hit and sunk */
-                    if (false) {
+                    if (board_evaluate_ship(board_player, player_pos[type])) {
                         game_state_status = "Hit and sunk at " + cell_label + "!";
                     } else {
                         game_state_status = "Hit at " + cell_label + "!";
