@@ -7,14 +7,14 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 3,
-  "bbox_right": 56,
-  "bbox_top": 8,
-  "bbox_bottom": 23,
+  "bbox_left": 10,
+  "bbox_right": 156,
+  "bbox_top": 1,
+  "bbox_bottom": 31,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 64,
+  "width": 160,
   "height": 32,
   "textureGroupId": {
     "name": "Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"1d08f0fa-f1e7-405a-96d4-05df92204011","path":"sprites/Sprite5/Sprite5.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"1d08f0fa-f1e7-405a-96d4-05df92204011","path":"sprites/Sprite5/Sprite5.yy",},"LayerId":{"name":"a2dc2e01-a7dd-4171-99a0-e81f3a2b1d99","path":"sprites/Sprite5/Sprite5.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"Sprite5","path":"sprites/Sprite5/Sprite5.yy",},"resourceVersion":"1.0","name":"1d08f0fa-f1e7-405a-96d4-05df92204011","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"0b456211-f6b2-4f52-bd55-3a40d3db2931","path":"sprites/sprite_ship_carrier/sprite_ship_carrier.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"0b456211-f6b2-4f52-bd55-3a40d3db2931","path":"sprites/sprite_ship_carrier/sprite_ship_carrier.yy",},"LayerId":{"name":"c8307c0e-3d96-4955-998b-389aed3b5fe9","path":"sprites/sprite_ship_carrier/sprite_ship_carrier.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprite_ship_carrier","path":"sprites/sprite_ship_carrier/sprite_ship_carrier.yy",},"resourceVersion":"1.0","name":"0b456211-f6b2-4f52-bd55-3a40d3db2931","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"Sprite5","path":"sprites/Sprite5/Sprite5.yy",},
+    "spriteId": {"name":"sprite_ship_carrier","path":"sprites/sprite_ship_carrier/sprite_ship_carrier.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"31e4870e-ec69-4aac-9c14-fefc09336e3f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1d08f0fa-f1e7-405a-96d4-05df92204011","path":"sprites/Sprite5/Sprite5.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"83ce4c34-4c86-4bd5-a6d9-9e61b6bd4413","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0b456211-f6b2-4f52-bd55-3a40d3db2931","path":"sprites/sprite_ship_carrier/sprite_ship_carrier.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"Sprite5","path":"sprites/Sprite5/Sprite5.yy",},
+    "parent": {"name":"sprite_ship_carrier","path":"sprites/sprite_ship_carrier/sprite_ship_carrier.yy",},
     "resourceVersion": "1.3",
-    "name": "Sprite5",
+    "name": "sprite_ship_carrier",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a2dc2e01-a7dd-4171-99a0-e81f3a2b1d99","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c8307c0e-3d96-4955-998b-389aed3b5fe9","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "GSIGM Game Jam - Battleship",
     "path": "GSIGM Game Jam - Battleship.yyp",
   },
   "resourceVersion": "1.0",
-  "name": "Sprite5",
+  "name": "sprite_ship_carrier",
   "tags": [],
   "resourceType": "GMSprite",
 }

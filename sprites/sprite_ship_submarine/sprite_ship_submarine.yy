@@ -7,14 +7,14 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 10,
-  "bbox_right": 156,
-  "bbox_top": 1,
-  "bbox_bottom": 31,
+  "bbox_left": 2,
+  "bbox_right": 94,
+  "bbox_top": 9,
+  "bbox_bottom": 22,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 160,
+  "width": 96,
   "height": 32,
   "textureGroupId": {
     "name": "Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0b456211-f6b2-4f52-bd55-3a40d3db2931","path":"sprites/Sprite1/Sprite1.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0b456211-f6b2-4f52-bd55-3a40d3db2931","path":"sprites/Sprite1/Sprite1.yy",},"LayerId":{"name":"c8307c0e-3d96-4955-998b-389aed3b5fe9","path":"sprites/Sprite1/Sprite1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},"resourceVersion":"1.0","name":"0b456211-f6b2-4f52-bd55-3a40d3db2931","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"6581013b-4906-4bc4-a298-8bf63c88fb3f","path":"sprites/sprite_ship_submarine/sprite_ship_submarine.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"6581013b-4906-4bc4-a298-8bf63c88fb3f","path":"sprites/sprite_ship_submarine/sprite_ship_submarine.yy",},"LayerId":{"name":"9ce8cf33-4519-4d4d-a708-9175b83568bc","path":"sprites/sprite_ship_submarine/sprite_ship_submarine.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprite_ship_submarine","path":"sprites/sprite_ship_submarine/sprite_ship_submarine.yy",},"resourceVersion":"1.0","name":"6581013b-4906-4bc4-a298-8bf63c88fb3f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},
+    "spriteId": {"name":"sprite_ship_submarine","path":"sprites/sprite_ship_submarine/sprite_ship_submarine.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"83ce4c34-4c86-4bd5-a6d9-9e61b6bd4413","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0b456211-f6b2-4f52-bd55-3a40d3db2931","path":"sprites/Sprite1/Sprite1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"6fdbf2d4-913f-41db-a1cc-1511549c3525","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6581013b-4906-4bc4-a298-8bf63c88fb3f","path":"sprites/sprite_ship_submarine/sprite_ship_submarine.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},
+    "parent": {"name":"sprite_ship_submarine","path":"sprites/sprite_ship_submarine/sprite_ship_submarine.yy",},
     "resourceVersion": "1.3",
-    "name": "Sprite1",
+    "name": "sprite_ship_submarine",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c8307c0e-3d96-4955-998b-389aed3b5fe9","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9ce8cf33-4519-4d4d-a708-9175b83568bc","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "GSIGM Game Jam - Battleship",
     "path": "GSIGM Game Jam - Battleship.yyp",
   },
   "resourceVersion": "1.0",
-  "name": "Sprite1",
+  "name": "sprite_ship_submarine",
   "tags": [],
   "resourceType": "GMSprite",
 }
