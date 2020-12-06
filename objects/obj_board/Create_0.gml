@@ -7,7 +7,7 @@ randomize();
 #macro SUBMARINE_SIZE 3
 #macro PATROL_SIZE 2
 
-#macro DEBUG true
+#macro DEBUG false
 #macro DT (delta_time / 1000000)
 #macro ACTION_COOLDOWN 2
 

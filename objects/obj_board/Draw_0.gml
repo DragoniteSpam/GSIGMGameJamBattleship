@@ -49,6 +49,20 @@ if (DEBUG) {
         draw_sprite_ext(spr_ship_submarine, 0, base_x + foe_pos[@ GridStates.SHIP_SUBMARINE].x * base_w, base_y + foe_pos[@ GridStates.SHIP_SUBMARINE].y * base_h, 1, 1, foe_pos[@ GridStates.SHIP_SUBMARINE].rot, c_white, 1);
         board_draw_shots(board_foe, base_x, base_y, base_w, base_h);
     }
+} else {
+    var base_x = 960;
+    var base_y = 96;
+    var spacing = 24;
+    var line = 0;
+    
+    draw_text(base_x, base_y + line++ * spacing, "BATTLESHIPS");
+    draw_text(base_x, base_y + line++ * spacing, "a 24-hour game jam game made");
+    draw_text(base_x, base_y + line++ * spacing, "by kevin and michael");
+    draw_text(base_x, base_y + line++ * spacing, "");
+    draw_text(base_x, base_y + line++ * spacing, "water splash sound effects");
+    draw_text(base_x, base_y + line++ * spacing, "from the Blender Foundation");
+    draw_text(base_x, base_y + line++ * spacing, "and Michel Baradari (CC-BY-3.0),");
+    draw_text(base_x, base_y + line++ * spacing, "via OpenGameArt");
 }
 
 if (game_state == GameStates.SETUP) {
