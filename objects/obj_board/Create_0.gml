@@ -9,7 +9,7 @@ randomize();
 
 #macro DEBUG true
 #macro DT (delta_time / 1000000)
-#macro ACTION_COOLDOWN 2
+#macro ACTION_COOLDOWN 1
 
 // grid states will be a mask composed of the "shot" state and
 // ship type; 0x11, for example, will denote "shot patrol boat"
@@ -78,4 +78,5 @@ foe_pos[GridStates.SHIP_SUBMARINE] = foe_add_ship(SUBMARINE_SIZE, GridStates.SHI
 foe_pos[GridStates.SHIP_PATROL_A] = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_A);
 foe_pos[GridStates.SHIP_PATROL_B] = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_B);
 
-ai = new ShipAIBasic();
+ai = new ShipAIBasic(board_player, player_pos);
+ai_player = new ShipAIBasic(board_foe, foe_pos);

@@ -1,26 +1,32 @@
-function ShipAIRandom() constructor {
+function ShipAIRandom(board, ships) constructor {
+    self.board = board;
+    self.ships = ships;
+    
     Act = function() {
         while (true) {
             var cx = irandom(GRID_SIZE - 1);
             var cy = irandom(GRID_SIZE - 1);
-            if (!(obj_board.board_player[cx][cy] & GridStates.SHOT)) {
+            if (!(board[cx][cy] & GridStates.SHOT)) {
                 return { x: cx, y: cy };
             }
         }
     };
 }
 
-function ShipAIBasic() constructor {
-    test_hit = undefined;
+function ShipAIBasic(board, ships) constructor {
+    self.test_hit = undefined;
+    self.board = board;
+    self.ships = ships;
     
-    testHitData = function(x, y, target) constructor {
+    self.testHitData = function(x, y, owner) constructor {
         self.seek = choose(0, 90, 180, 270);
         self.tracking = false;
+        self.owner = owner;
         
         self.Position = function(x, y) {
             self.x = x;
             self.y = y;
-            self.target = obj_board.player_pos[obj_board.board_player[x][y] & GridStates.HIT_MASK];
+            self.target = self.owner.ships[self.owner.board[x][y] & GridStates.HIT_MASK];
         };
         
         self.Position(x, y);
@@ -33,10 +39,10 @@ function ShipAIBasic() constructor {
                 var cy = test_hit.y - dsin(test_hit.seek);
                 
                 if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
-                    if (!(obj_board.board_player[cx][cy] & GridStates.SHOT)) {
-                        if (obj_board.board_player[cx][cy] & GridStates.HIT_MASK) {
+                    if (!(board[cx][cy] & GridStates.SHOT)) {
+                        if (board[cx][cy] & GridStates.HIT_MASK) {
                             test_hit.Position(cx, cy);
-                            if (board_evaluate_ship_test(obj_board.board_player, test_hit.target, cx, cy)) {
+                            if (board_evaluate_ship_test(board, test_hit.target, cx, cy)) {
                                 test_hit = undefined;
                             }
                             return { x: cx, y: cy };
@@ -48,8 +54,8 @@ function ShipAIBasic() constructor {
                 for (var i = 0; i < test_hit.target.size; i++) {
                     var cx = test_hit.x + dcos(test_hit.seek);
                     var cy = test_hit.y - dsin(test_hit.seek);
-                    if (!(obj_board.board_player[cx][cy] & GridStates.SHOT)) {
-                        if (board_evaluate_ship_test(obj_board.board_player, test_hit.target, cx, cy)) {
+                    if (!(board[cx][cy] & GridStates.SHOT)) {
+                        if (board_evaluate_ship_test(board, test_hit.target, cx, cy)) {
                             test_hit = undefined;
                         }
                         return { x: cx, y: cy };
@@ -61,9 +67,9 @@ function ShipAIBasic() constructor {
                 var cx = test_hit.x + dcos(test_hit.seek);
                 var cy = test_hit.y - dsin(test_hit.seek);
                 if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
-                    if (!(obj_board.board_player[cx][cy] & GridStates.SHOT)) {
-                        if (obj_board.board_player[cx][cy] & GridStates.HIT_MASK) {
-                            if (board_evaluate_ship_test(obj_board.board_player, test_hit.target, cx, cy)) {
+                    if (!(board[cx][cy] & GridStates.SHOT)) {
+                        if (board[cx][cy] & GridStates.HIT_MASK) {
+                            if (board_evaluate_ship_test(board, test_hit.target, cx, cy)) {
                                 test_hit = undefined;
                             } else {
                                 test_hit.Position(cx, cy);
@@ -82,9 +88,9 @@ function ShipAIBasic() constructor {
         while (true) {
             var cx = irandom(GRID_SIZE - 1);
             var cy = irandom(GRID_SIZE - 1);
-            if (!(obj_board.board_player[cx][cy] & GridStates.SHOT)) {
-                if (obj_board.board_player[cx][cy] & GridStates.HIT_MASK) {
-                    test_hit = new testHitData(cx, cy);
+            if (!(board[cx][cy] & GridStates.SHOT)) {
+                if (board[cx][cy] & GridStates.HIT_MASK) {
+                    test_hit = new testHitData(cx, cy, self);
                 }
                 return { x: cx, y: cy };
             }
