@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d2da7839-131b-497e-bd75-1af13725c416","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "GSIGM Game Jam - Battleship",
-    "path": "GSIGM Game Jam - Battleship.yyp",
+    "name": "graphics",
+    "path": "folders/graphics.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ship_submarine",

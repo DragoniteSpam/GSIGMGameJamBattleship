@@ -13,8 +13,8 @@
   "soundFile": "se_ambience01.wav",
   "duration": 3.515998,
   "parent": {
-    "name": "GSIGM Game Jam - Battleship",
-    "path": "GSIGM Game Jam - Battleship.yyp",
+    "name": "audio",
+    "path": "folders/audio.yy",
   },
   "resourceVersion": "1.0",
   "name": "se_ambience01",

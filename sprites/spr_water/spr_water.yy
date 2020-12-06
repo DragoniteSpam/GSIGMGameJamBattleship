@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3faa7829-fe5b-4e50-a1c1-4059ea8427e0","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "GSIGM Game Jam - Battleship",
-    "path": "GSIGM Game Jam - Battleship.yyp",
+    "name": "graphics",
+    "path": "folders/graphics.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_water",

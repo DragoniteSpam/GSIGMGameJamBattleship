@@ -457,8 +457,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "GSIGM Game Jam - Battleship",
-    "path": "GSIGM Game Jam - Battleship.yyp",
+    "name": "graphics",
+    "path": "folders/graphics.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_game",

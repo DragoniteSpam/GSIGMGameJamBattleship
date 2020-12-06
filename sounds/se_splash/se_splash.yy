@@ -13,8 +13,8 @@
   "soundFile": "se_splash.wav",
   "duration": 2.273299,
   "parent": {
-    "name": "GSIGM Game Jam - Battleship",
-    "path": "GSIGM Game Jam - Battleship.yyp",
+    "name": "audio",
+    "path": "folders/audio.yy",
   },
   "resourceVersion": "1.0",
   "name": "se_splash",

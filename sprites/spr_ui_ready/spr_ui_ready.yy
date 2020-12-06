@@ -70,8 +70,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"8024ce7d-8f8a-46c0-9153-27e19ae042fe","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "GSIGM Game Jam - Battleship",
-    "path": "GSIGM Game Jam - Battleship.yyp",
+    "name": "graphics",
+    "path": "folders/graphics.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ui_ready",
