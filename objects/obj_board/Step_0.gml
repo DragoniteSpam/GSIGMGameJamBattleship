@@ -74,6 +74,12 @@ if (game_state == GameStates.SETUP) {
         }
     }
     
+    if (mouse_wheel_up()) {
+        setup_selected_ship_orientation = (((setup_selected_ship_orientation div 90) + 1) % 4) * 90;
+    } else if (mouse_wheel_down()) {
+        setup_selected_ship_orientation = (((setup_selected_ship_orientation div 90) + 3) % 4) * 90;
+    }
+    
     var ready = true;
     if (!player_pos[GridStates.SHIP_BATTLESHIP]) ready = false;
     if (!player_pos[GridStates.SHIP_CARRIER]) ready = false;

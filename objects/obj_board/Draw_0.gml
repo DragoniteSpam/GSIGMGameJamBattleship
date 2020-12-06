@@ -63,10 +63,12 @@ if (game_state == GameStates.SETUP) {
     else ready = false;
     
     if (setup_selected_ship != GridStates.EMPTY) {
-        draw_sprite(ship_sprites[setup_selected_ship], 0, window_mouse_get_x(), window_mouse_get_y());
+        draw_sprite_ext(ship_sprites[setup_selected_ship], 0, window_mouse_get_x(), window_mouse_get_y(), 1, 1, setup_selected_ship_orientation, c_white, 1);
     }
     
     if (ready) {
         draw_sprite(spr_ui_ready, 0, base_x, base_y + 6 * base_h);
+    } else {
+        draw_text(base_x, base_y + 6 * base_h, "scroll the mouse wheel to rotate your ship");
     }
 }
