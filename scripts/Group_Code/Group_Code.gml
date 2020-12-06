@@ -63,7 +63,7 @@ function board_evaluate(board) {
 function board_evaluate_ship(board, data) {
     var sx = data.x;
     var sy = data.y;
-    for (var si = 0; si < obj_board.ship_sizes[data.type]; si++) {
+    for (var si = 0; si < data.size; si++) {
         if (!(board[@ sx][@ sy] & GridStates.SHOT)) {
             return false;
         }
@@ -98,6 +98,18 @@ function board_draw_shots(board, x, y, w, h) {
             }
         }
     }
+}
+
+function board_valid_cell(board, x, y) {
+    return (x >= 0) && (x < GRID_SIZE) && (y >= 0) && (y < GRID_SIZE);
+}
+
+function board_valid_shot(board, x, y) {
+    return board_valid_cell(board, x, y) && !(board[@ x][@ y] & GridStates.SHOT);
+}
+
+function board_hit_ship(board, x, y) {
+    return board_valid_shot(board, x, y) && (board[@ x][@ y] & GridStates.HIT_MASK);
 }
 
 function mouse_in_rectangle(x, y, w, h) {
