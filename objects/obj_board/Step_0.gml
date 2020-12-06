@@ -90,7 +90,7 @@ if (game_state == GameStates.SETUP) {
     
     if (ready && mouse_in_rectangle(base_x, base_y + 6 * base_h, base_w, base_h) && mouse_check_button_pressed(mb_left)) {
         game_state = GameStates.PLAY_YOUR_TURN_PRE;
-        game_state_status = "Take the first turn!";
+        status("Take the first turn!");
     }
     
     return;
@@ -102,7 +102,7 @@ if (game_state == GameStates.PLAY_YOUR_TURN_PRE) {
         if (game_state_cooldown < 0) {
             game_state = GameStates.PLAY_YOUR_TURN;
             game_state_cooldown = -1;
-            game_state_status = "Where will you attack?";
+            status("Where will you attack?");
         }
     } else {
         game_state_cooldown = ACTION_COOLDOWN;
@@ -115,11 +115,10 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
         if (game_state_cooldown < 0) {
             if (board_evaluate(board_foe)) {
                 game_state = GameStates.GAMEOVER_YOU_WIN;
-                //game_state_status = "You win!";
-                game_state_status = "Your AI wins!";
+                status("You win!");
             } else {
                 game_state = GameStates.PLAY_AI_TURN_PRE;
-                game_state_status = "The AI is taking their turn!";
+                status("The AI is taking their turn!");
             }
             game_state_cooldown = -1;
         }
@@ -137,12 +136,12 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
             var type = board_foe[@ target.x][@ target.y] & GridStates.HIT_MASK;
             if (type) {
                 if (board_evaluate_ship(board_foe, foe_pos[@ type])) {
-                    game_state_status = "You hit and sank " + cell_label + "!";
+                    status("You hit and sank " + cell_label + "!");
                 } else {
-                    game_state_status = "You hit " + cell_label + "!";
+                    status("You hit " + cell_label + "!");
                 }
             } else {
-                game_state_status = "You missed " + cell_label + "!";
+                status("You missed " + cell_label + "!");
             }
         }
     }
@@ -168,10 +167,10 @@ if (game_state == GameStates.PLAY_AI_TURN) {
         if (game_state_cooldown < 0) {
             if (board_evaluate(board_player)) {
                 game_state = GameStates.GAMEOVER_AI_WIN;
-                game_state_status = "You have lost!";
+                status("You have lost!");
             } else {
                 game_state = GameStates.PLAY_YOUR_TURN_PRE;
-                game_state_status = "It's your turn!";
+                status("It's your turn!");
             }
             game_state_cooldown = -1;
         }
@@ -189,12 +188,12 @@ if (game_state == GameStates.PLAY_AI_TURN) {
             var type = board_player[@ target.x][@ target.y] & GridStates.HIT_MASK;
             if (type) {
                 if (board_evaluate_ship(board_player, player_pos[@ type])) {
-                    game_state_status = "Foe hit and sank " + cell_label + "!";
+                    status("Foe hit and sank " + cell_label + "!");
                 } else {
-                    game_state_status = "Foe hit " + cell_label + "!";
+                    status("Foe hit " + cell_label + "!");
                 }
             } else {
-                game_state_status = "Foe missed " + cell_label + "!";
+                status("Foe missed " + cell_label + "!");
             }
         }
     }

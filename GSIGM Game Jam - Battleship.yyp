@@ -1,8 +1,8 @@
 {
   "resources": [
     {"id":{"name":"Group_AI","path":"scripts/Group_AI/Group_AI.yy",},"order":27,},
-    {"id":{"name":"spr_water_displace","path":"sprites/spr_water_displace/spr_water_displace.yy",},"order":11,},
-    {"id":{"name":"spr_water","path":"sprites/spr_water/spr_water.yy",},"order":9,},
+    {"id":{"name":"spr_water_displace","path":"sprites/spr_water_displace/spr_water_displace.yy",},"order":2,},
+    {"id":{"name":"spr_water","path":"sprites/spr_water/spr_water.yy",},"order":1,},
     {"id":{"name":"spr_ship_carrier","path":"sprites/spr_ship_carrier/spr_ship_carrier.yy",},"order":3,},
     {"id":{"name":"spr_ship_destroyer","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"order":4,},
     {"id":{"name":"spr_ship_patrol","path":"sprites/spr_ship_patrol/spr_ship_patrol.yy",},"order":5,},
@@ -13,8 +13,9 @@
     {"id":{"name":"spr_cell_shot","path":"sprites/spr_cell_shot/spr_cell_shot.yy",},"order":1,},
     {"id":{"name":"Group_Code","path":"scripts/Group_Code/Group_Code.yy",},"order":18,},
     {"id":{"name":"se_ambience02","path":"sounds/se_ambience02/se_ambience02.yy",},"order":1,},
-    {"id":{"name":"shd_water","path":"shaders/shd_water/shd_water.yy",},"order":35,},
+    {"id":{"name":"shd_water","path":"shaders/shd_water/shd_water.yy",},"order":0,},
     {"id":{"name":"spr_ship_battleship","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"order":2,},
+    {"id":{"name":"Group_Log","path":"scripts/Group_Log/Group_Log.yy",},"order":45,},
     {"id":{"name":"spr_ui_ship_set","path":"sprites/spr_ui_ship_set/spr_ui_ship_set.yy",},"order":8,},
     {"id":{"name":"se_splash","path":"sounds/se_splash/se_splash.yy",},"order":3,},
     {"id":{"name":"fnt_game","path":"fonts/fnt_game/fnt_game.yy",},"order":10,},

@@ -54,7 +54,9 @@ enum GameStates {
 
 game_state = GameStates.SETUP;
 game_state_cooldown = -1;
-game_state_status = "Place your battleships!";
+game_status_logs = ds_list_create();
+game_state_status = "";
+status("Place your battleships!");
 setup_selected_ship = GridStates.EMPTY;
 setup_selected_ship_orientation = 0;
 

@@ -1,8 +1,8 @@
 {
   "type": 1,
   "parent": {
-    "name": "GSIGM Game Jam - Battleship",
-    "path": "GSIGM Game Jam - Battleship.yyp",
+    "name": "water",
+    "path": "folders/water.yy",
   },
   "resourceVersion": "1.0",
   "name": "shd_water",
