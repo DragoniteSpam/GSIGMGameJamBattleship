@@ -111,7 +111,11 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
             if (board_foe[cx][cy] & GridStates.HIT_MASK) {
                 // inform the player, probably
             }
-            game_state = GameStates.PLAY_AI_TURN;
+            if (board_evaluate(board_foe)) {
+                game_state = GameStates.GAMEOVER_YOU_WIN;
+            } else {
+                game_state = GameStates.PLAY_AI_TURN;
+            }
         }
     }
     
@@ -124,7 +128,11 @@ if (game_state == GameStates.PLAY_AI_TURN) {
         var cy = irandom(GRID_SIZE - 1);
         if (!(board_player[cx][cy] & GridStates.SHOT)) {
             board_player[cx][cy] |= GridStates.SHOT;
-            game_state = GameStates.PLAY_YOUR_TURN;
+            if (board_evaluate(board_player)) {
+                game_state = GameStates.GAMEOVER_YOU_WIN;
+            } else {
+                game_state = GameStates.PLAY_YOUR_TURN;
+            }
             break;
         }
     }

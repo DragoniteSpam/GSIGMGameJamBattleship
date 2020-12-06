@@ -44,6 +44,8 @@ enum GameStates {
     SETUP,
     PLAY_YOUR_TURN,
     PLAY_AI_TURN,
+    GAMEOVER_YOU_WIN,
+    GAMEOVER_AI_WIN,
 }
 
 game_state = GameStates.SETUP;
