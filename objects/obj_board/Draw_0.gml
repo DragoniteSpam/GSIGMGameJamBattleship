@@ -22,7 +22,7 @@ if (player_pos[GridStates.SHIP_SUBMARINE])draw_sprite_ext(spr_ship_submarine, 0,
 for (var i = 0; i < GRID_SIZE; i++) {
     for (var j = 0; j < GRID_SIZE; j++) {
         if (board_player[i][j] & GridStates.SHOT) {
-            var damaged = board_player[i][j] & GridStates.HIT_MASK;
+            var damaged = !!(board_player[i][j] & GridStates.HIT_MASK);
             draw_sprite(spr_cell_shot, damaged, base_x + i * base_w, base_y + j * base_h);
         }
     }
