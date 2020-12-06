@@ -21,12 +21,12 @@
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 32,
-  "gridY": 32,
+  "gridX": 0,
+  "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"ccb7b2a5-01bd-4f7f-aa5d-17bc7761889c","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ccb7b2a5-01bd-4f7f-aa5d-17bc7761889c","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"LayerId":{"name":"0c6825d1-3af3-4915-a23c-43d83e11f26f","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_ship_battleship","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"resourceVersion":"1.0","name":"ccb7b2a5-01bd-4f7f-aa5d-17bc7761889c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"0fdad3cf-0c59-4d4c-a2d1-1a7835473c76","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"0fdad3cf-0c59-4d4c-a2d1-1a7835473c76","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"LayerId":{"name":"19dd3d0b-b131-4f43-a48d-e1a51d714bc7","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_ship_battleship","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"resourceVersion":"1.0","name":"0fdad3cf-0c59-4d4c-a2d1-1a7835473c76","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_ship_battleship","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"220bcc8a-3633-4dab-bae6-b2e61e0e7388","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ccb7b2a5-01bd-4f7f-aa5d-17bc7761889c","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"a403136c-2953-4657-b2fc-cee626a2977d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0fdad3cf-0c59-4d4c-a2d1-1a7835473c76","path":"sprites/spr_ship_battleship/spr_ship_battleship.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0c6825d1-3af3-4915-a23c-43d83e11f26f","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"19dd3d0b-b131-4f43-a48d-e1a51d714bc7","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "GSIGM Game Jam - Battleship",

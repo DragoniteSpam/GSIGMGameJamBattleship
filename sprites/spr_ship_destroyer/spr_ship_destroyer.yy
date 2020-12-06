@@ -21,12 +21,12 @@
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 32,
-  "gridY": 32,
+  "gridX": 0,
+  "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"8bf30801-6279-443e-a5df-bba6ada08cbd","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8bf30801-6279-443e-a5df-bba6ada08cbd","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"LayerId":{"name":"161df056-b3f4-41d4-b6fe-8d126f9cc6cf","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_ship_destroyer","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"resourceVersion":"1.0","name":"8bf30801-6279-443e-a5df-bba6ada08cbd","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"1c3f948b-5d42-4bd8-addb-a66f3a038f67","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"1c3f948b-5d42-4bd8-addb-a66f3a038f67","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"LayerId":{"name":"b4b2d16a-ffd6-4a44-af04-221a95d79f58","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_ship_destroyer","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"resourceVersion":"1.0","name":"1c3f948b-5d42-4bd8-addb-a66f3a038f67","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_ship_destroyer","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c50c8b1e-41e8-4ed3-ad2e-51faaa731798","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8bf30801-6279-443e-a5df-bba6ada08cbd","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9648a498-d4f0-4cce-906f-004abaf76b97","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1c3f948b-5d42-4bd8-addb-a66f3a038f67","path":"sprites/spr_ship_destroyer/spr_ship_destroyer.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"161df056-b3f4-41d4-b6fe-8d126f9cc6cf","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b4b2d16a-ffd6-4a44-af04-221a95d79f58","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "GSIGM Game Jam - Battleship",

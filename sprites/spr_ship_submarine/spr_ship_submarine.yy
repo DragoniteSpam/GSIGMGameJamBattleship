@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 0,
-  "bbox_right": 95,
-  "bbox_top": 0,
-  "bbox_bottom": 31,
+  "bbox_left": 2,
+  "bbox_right": 94,
+  "bbox_top": 9,
+  "bbox_bottom": 22,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -21,12 +21,12 @@
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 32,
-  "gridY": 32,
+  "gridX": 0,
+  "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"3bffbeb1-0fa2-4faa-9b2c-9e12835afe1e","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3bffbeb1-0fa2-4faa-9b2c-9e12835afe1e","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"LayerId":{"name":"a12991ca-c49b-470c-bfbe-63d20c08b45a","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_ship_submarine","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"resourceVersion":"1.0","name":"3bffbeb1-0fa2-4faa-9b2c-9e12835afe1e","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"54cde26f-b33d-4ee6-907a-5dffc2039e76","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"54cde26f-b33d-4ee6-907a-5dffc2039e76","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"LayerId":{"name":"d2da7839-131b-497e-bd75-1af13725c416","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_ship_submarine","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"resourceVersion":"1.0","name":"54cde26f-b33d-4ee6-907a-5dffc2039e76","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_ship_submarine","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"7af4ee99-f5dd-4a39-bfb3-850b5e39317d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3bffbeb1-0fa2-4faa-9b2c-9e12835afe1e","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"96b5b3a5-284d-4ce8-bcb3-7967421f6d7a","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"54cde26f-b33d-4ee6-907a-5dffc2039e76","path":"sprites/spr_ship_submarine/spr_ship_submarine.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a12991ca-c49b-470c-bfbe-63d20c08b45a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d2da7839-131b-497e-bd75-1af13725c416","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "GSIGM Game Jam - Battleship",
