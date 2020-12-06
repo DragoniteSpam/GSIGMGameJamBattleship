@@ -60,6 +60,25 @@ function board_evaluate(board) {
     return true;
 }
 
+function board_draw(board, x, y, w, h) {
+    for (var i = 0; i < GRID_SIZE; i++) {
+        for (var j = 0; j < GRID_SIZE; j++) {
+            draw_sprite(spr_cell, 0, x + i * w, y + j * h);
+        }
+    }
+}
+
+function board_draw_shots(board, x, y, w, h) {
+    for (var i = 0; i < GRID_SIZE; i++) {
+        for (var j = 0; j < GRID_SIZE; j++) {
+            if (board[@ i][@ j] & GridStates.SHOT) {
+                var damaged = !!(board[@ i][@ j] & GridStates.HIT_MASK);
+                draw_sprite(spr_cell_shot, damaged, x + i * w, y + j * h);
+            }
+        }
+    }
+}
+
 function mouse_in_rectangle(x, y, w, h) {
     return point_in_rectangle(window_mouse_get_x(), window_mouse_get_y(), x, y, x + w, y + h);
 }

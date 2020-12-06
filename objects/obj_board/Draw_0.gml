@@ -5,12 +5,8 @@ var base_y = 96;
 var base_w = sprite_get_width(spr_cell);
 var base_h = sprite_get_height(spr_cell);
 
-for (var i = 0; i < GRID_SIZE; i++) {
-    for (var j = 0; j < GRID_SIZE; j++) {
-        draw_sprite(spr_cell, 0, base_x + i * base_w, base_y + j * base_h);
-    }
-}
-draw_text(base_x, base_y + j * base_h, "You");
+board_draw(board_player, base_x, base_y, base_w, base_h);
+draw_text(base_x, base_y + GRID_SIZE * base_h, "You");
 
 if (player_pos[GridStates.SHIP_BATTLESHIP]) draw_sprite_ext(spr_ship_battleship, 0, base_x + player_pos[GridStates.SHIP_BATTLESHIP].x * base_w, base_y + player_pos[GridStates.SHIP_BATTLESHIP].y * base_h, 1, 1, player_pos[GridStates.SHIP_BATTLESHIP].rot, c_white, 1);
 if (player_pos[GridStates.SHIP_CARRIER]) draw_sprite_ext(spr_ship_carrier, 0, base_x + player_pos[GridStates.SHIP_CARRIER].x * base_w, base_y + player_pos[GridStates.SHIP_CARRIER].y * base_h, 1, 1, player_pos[GridStates.SHIP_CARRIER].rot, c_white, 1);
@@ -19,37 +15,21 @@ if (player_pos[GridStates.SHIP_PATROL_A])draw_sprite_ext(spr_ship_patrol, 0, bas
 if (player_pos[GridStates.SHIP_PATROL_B])draw_sprite_ext(spr_ship_patrol, 0, base_x + player_pos[GridStates.SHIP_PATROL_B].x * base_w, base_y + player_pos[GridStates.SHIP_PATROL_B].y * base_h, 1, 1, player_pos[GridStates.SHIP_PATROL_B].rot, c_white, 1);
 if (player_pos[GridStates.SHIP_SUBMARINE])draw_sprite_ext(spr_ship_submarine, 0, base_x + player_pos[GridStates.SHIP_SUBMARINE].x * base_w, base_y + player_pos[GridStates.SHIP_SUBMARINE].y * base_h, 1, 1, player_pos[GridStates.SHIP_SUBMARINE].rot, c_white, 1);
 
-for (var i = 0; i < GRID_SIZE; i++) {
-    for (var j = 0; j < GRID_SIZE; j++) {
-        if (board_player[i][j] & GridStates.SHOT) {
-            var damaged = !!(board_player[i][j] & GridStates.HIT_MASK);
-            draw_sprite(spr_cell_shot, damaged, base_x + i * base_w, base_y + j * base_h);
-        }
-    }
-}
+board_draw_shots(board_player, base_x, base_y, base_w, base_h);
 
 var base_x = 512;
 var base_y = 96;
-for (var i = 0; i < GRID_SIZE; i++) {
-    for (var j = 0; j < GRID_SIZE; j++) {
-        draw_sprite(spr_cell, 0, base_x + i * base_w, base_y + j * base_h);
-        if (board_foe[i][j] & GridStates.SHOT) {
-            var damaged = !!(board_foe[i][j] & GridStates.HIT_MASK);
-            draw_sprite(spr_cell_shot, damaged, base_x + i * base_w, base_y + j * base_h);
-        }
-    }
-}
-draw_text(base_x, base_y + j * base_h, "Foe");
+
+board_draw(board_foe, base_x, base_y, base_w, base_h);
+board_draw_shots(board_foe, base_x, base_y, base_w, base_h);
+
+draw_text(base_x, base_y + GRID_SIZE * base_h, "Foe");
 
 if (DEBUG) {
     var base_x = 960;
     var base_y = 96;
-    for (var i = 0; i < GRID_SIZE; i++) {
-        for (var j = 0; j < GRID_SIZE; j++) {
-            draw_sprite(spr_cell, 0, base_x + i * base_w, base_y + j * base_h);
-        }
-    }
-    draw_text(base_x, base_y + j * base_h, "Foe (debug - hold space)");
+    board_draw(board_foe, base_x, base_y, base_w, base_h);
+    draw_text(base_x, base_y + GRID_SIZE * base_h, "Foe (debug - hold space)");
     if (keyboard_check(vk_space)) {
         draw_sprite_ext(spr_ship_battleship, 0, base_x + foe_pos[GridStates.SHIP_BATTLESHIP].x * base_w, base_y + foe_pos[GridStates.SHIP_BATTLESHIP].y * base_h, 1, 1, foe_pos[GridStates.SHIP_BATTLESHIP].rot, c_white, 1);
         draw_sprite_ext(spr_ship_carrier, 0, base_x + foe_pos[GridStates.SHIP_CARRIER].x * base_w, base_y + foe_pos[GridStates.SHIP_CARRIER].y * base_h, 1, 1, foe_pos[GridStates.SHIP_CARRIER].rot, c_white, 1);
@@ -57,14 +37,7 @@ if (DEBUG) {
         draw_sprite_ext(spr_ship_patrol, 0, base_x + foe_pos[GridStates.SHIP_PATROL_B].x * base_w, base_y + foe_pos[GridStates.SHIP_PATROL_B].y * base_h, 1, 1, foe_pos[GridStates.SHIP_PATROL_B].rot, c_white, 1);
         draw_sprite_ext(spr_ship_patrol, 0, base_x + foe_pos[GridStates.SHIP_PATROL_A].x * base_w, base_y + foe_pos[GridStates.SHIP_PATROL_A].y * base_h, 1, 1, foe_pos[GridStates.SHIP_PATROL_A].rot, c_white, 1);
         draw_sprite_ext(spr_ship_submarine, 0, base_x + foe_pos[GridStates.SHIP_SUBMARINE].x * base_w, base_y + foe_pos[GridStates.SHIP_SUBMARINE].y * base_h, 1, 1, foe_pos[GridStates.SHIP_SUBMARINE].rot, c_white, 1);
-        for (var i = 0; i < GRID_SIZE; i++) {
-            for (var j = 0; j < GRID_SIZE; j++) {
-                if (board_foe[i][j] & GridStates.SHOT) {
-                    var damaged = board_foe[i][j] & GridStates.HIT_MASK;
-                    draw_sprite(spr_cell_shot, damaged, base_x + i * base_w, base_y + j * base_h);
-                }
-            }
-        }
+        board_draw_shots(board_foe, base_x, base_y, base_w, base_h);
     }
 }
 
