@@ -89,6 +89,6 @@ if (game_state == GameStates.SETUP) {
     if (!player_pos[GridStates.SHIP_SUBMARINE]) ready = false;
     
     if (ready && mouse_in_rectangle(base_x, base_y + 6 * base_h, base_w, base_h) && mouse_check_button_pressed(mb_left)) {
-        
+        game_state = GameStates.PLAY_YOUR_TURN;
     }
 }

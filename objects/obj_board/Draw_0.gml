@@ -1,3 +1,9 @@
+switch (game_state) {
+    case GameStates.SETUP:          draw_text(32, 32, "Assign your pieces!"); break;
+    case GameStates.PLAY_YOUR_TURN: draw_text(32, 32, "Attack your foe!"); break;
+    case GameStates.PLAY_AI_TURN:   draw_text(32, 32, "The foe is attacking you!"); break;
+}
+
 var base_x = 64;
 var base_y = 96;
 var base_w = sprite_get_width(spr_cell);
