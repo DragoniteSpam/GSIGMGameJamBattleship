@@ -91,6 +91,8 @@ if (game_state == GameStates.SETUP) {
     if (ready && mouse_in_rectangle(base_x, base_y + 6 * base_h, base_w, base_h) && mouse_check_button_pressed(mb_left)) {
         game_state = GameStates.PLAY_YOUR_TURN;
     }
+    
+    return;
 }
 
 if (game_state == GameStates.PLAY_YOUR_TURN) {
@@ -109,6 +111,23 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
             if (board_foe[cx][cy] & GridStates.HIT_MASK) {
                 // inform the player, probably
             }
+            game_state = GameStates.PLAY_AI_TURN;
         }
     }
+    
+    return;
+}
+
+if (game_state == GameStates.PLAY_AI_TURN) {
+    while (true) {
+        var cx = irandom(GRID_SIZE - 1);
+        var cy = irandom(GRID_SIZE - 1);
+        if (!(board_player[cx][cy] & GridStates.SHOT)) {
+            board_player[cx][cy] |= GridStates.SHOT;
+            game_state = GameStates.PLAY_YOUR_TURN;
+            break;
+        }
+    }
+    
+    return;
 }
