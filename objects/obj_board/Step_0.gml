@@ -124,9 +124,9 @@ if (game_state == GameStates.PLAY_YOUR_TURN) {
             game_state_cooldown = -1;
         }
     } else {
-        var target = ai_player.Act(board_foe);
+        var target = ai_player.Act();
         if (target) {
-            if (board_player[@ target.x][@ target.y] & GridStates.HIT_MASK) {
+            if (board_foe[@ target.x][@ target.y] & GridStates.HIT_MASK) {
                 audio_play_sound(se_kaboom, 1, false);
             }
             board_foe[@ target.x][@ target.y] |= GridStates.SHOT;

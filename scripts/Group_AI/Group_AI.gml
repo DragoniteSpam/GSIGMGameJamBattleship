@@ -28,7 +28,7 @@ function ShipAIPlayer(board, ships) constructor {
         var cy = (window_mouse_get_y() - base_y + off_y) div base_h;
         
         if (cx >= 0 && cx < GRID_SIZE && cy >= 0 && cy < GRID_SIZE) {
-            if (!(board[cx][cy] & GridStates.SHOT) && mouse_check_button_pressed(mb_left)) {
+            if (!(board[@ cx][@ cy] & GridStates.SHOT) && mouse_check_button_pressed(mb_left)) {
                 return { x: cx, y: cy };
             }
         }
