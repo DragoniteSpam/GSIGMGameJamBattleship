@@ -51,12 +51,12 @@ if (DEBUG) {
     }
     draw_text(base_x, base_y + j * base_h, "Foe (debug - hold space)");
     if (keyboard_check(vk_space)) {
-        draw_sprite_ext(spr_ship_battleship, 0, base_x + foe_pos_battleship.x * base_w, base_y + foe_pos_battleship.y * base_h, 1, 1, foe_pos_battleship.rot, c_white, 1);
-        draw_sprite_ext(spr_ship_carrier, 0, base_x + foe_pos_carrier.x * base_w, base_y + foe_pos_carrier.y * base_h, 1, 1, foe_pos_carrier.rot, c_white, 1);
-        draw_sprite_ext(spr_ship_destroyer, 0, base_x + foe_pos_destroyer.x * base_w, base_y + foe_pos_destroyer.y * base_h, 1, 1, foe_pos_destroyer.rot, c_white, 1);
-        draw_sprite_ext(spr_ship_patrol, 0, base_x + foe_pos_patrol_b.x * base_w, base_y + foe_pos_patrol_b.y * base_h, 1, 1, foe_pos_patrol_b.rot, c_white, 1);
-        draw_sprite_ext(spr_ship_patrol, 0, base_x + foe_pos_patrol_a.x * base_w, base_y + foe_pos_patrol_a.y * base_h, 1, 1, foe_pos_patrol_a.rot, c_white, 1);
-        draw_sprite_ext(spr_ship_submarine, 0, base_x + foe_pos_submarine.x * base_w, base_y + foe_pos_submarine.y * base_h, 1, 1, foe_pos_submarine.rot, c_white, 1);
+        draw_sprite_ext(spr_ship_battleship, 0, base_x + foe_pos[GridStates.SHIP_BATTLESHIP].x * base_w, base_y + foe_pos[GridStates.SHIP_BATTLESHIP].y * base_h, 1, 1, foe_pos[GridStates.SHIP_BATTLESHIP].rot, c_white, 1);
+        draw_sprite_ext(spr_ship_carrier, 0, base_x + foe_pos[GridStates.SHIP_CARRIER].x * base_w, base_y + foe_pos[GridStates.SHIP_CARRIER].y * base_h, 1, 1, foe_pos[GridStates.SHIP_CARRIER].rot, c_white, 1);
+        draw_sprite_ext(spr_ship_destroyer, 0, base_x + foe_pos[GridStates.SHIP_DESTROYER].x * base_w, base_y + foe_pos[GridStates.SHIP_DESTROYER].y * base_h, 1, 1, foe_pos[GridStates.SHIP_DESTROYER].rot, c_white, 1);
+        draw_sprite_ext(spr_ship_patrol, 0, base_x + foe_pos[GridStates.SHIP_PATROL_B].x * base_w, base_y + foe_pos[GridStates.SHIP_PATROL_B].y * base_h, 1, 1, foe_pos[GridStates.SHIP_PATROL_B].rot, c_white, 1);
+        draw_sprite_ext(spr_ship_patrol, 0, base_x + foe_pos[GridStates.SHIP_PATROL_A].x * base_w, base_y + foe_pos[GridStates.SHIP_PATROL_A].y * base_h, 1, 1, foe_pos[GridStates.SHIP_PATROL_A].rot, c_white, 1);
+        draw_sprite_ext(spr_ship_submarine, 0, base_x + foe_pos[GridStates.SHIP_SUBMARINE].x * base_w, base_y + foe_pos[GridStates.SHIP_SUBMARINE].y * base_h, 1, 1, foe_pos[GridStates.SHIP_SUBMARINE].rot, c_white, 1);
         for (var i = 0; i < GRID_SIZE; i++) {
             for (var j = 0; j < GRID_SIZE; j++) {
                 if (board_foe[i][j] & GridStates.SHOT) {

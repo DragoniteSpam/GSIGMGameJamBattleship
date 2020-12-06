@@ -67,11 +67,12 @@ for (var i = 0; i < GRID_SIZE; i++) {
     board_foe[i] = array_create(GRID_SIZE, GridStates.EMPTY);
 }
 
-foe_pos_carrier = foe_add_ship(CARRIER_SIZE, GridStates.SHIP_CARRIER);
-foe_pos_battleship = foe_add_ship(BATTLESHIP_SIZE, GridStates.SHIP_BATTLESHIP);
-foe_pos_destroyer = foe_add_ship(DESTORYER_SIZE, GridStates.SHIP_DESTROYER);
-foe_pos_submarine = foe_add_ship(SUBMARINE_SIZE, GridStates.SHIP_SUBMARINE);
-foe_pos_patrol_a = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_A);
-foe_pos_patrol_b = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_B);
-
 player_pos = array_create(GridStates._SIZE, undefined);
+foe_pos = array_create(GridStates._SIZE, undefined);
+
+foe_pos[GridStates.SHIP_CARRIER] = foe_add_ship(CARRIER_SIZE, GridStates.SHIP_CARRIER);
+foe_pos[GridStates.SHIP_BATTLESHIP] = foe_add_ship(BATTLESHIP_SIZE, GridStates.SHIP_BATTLESHIP);
+foe_pos[GridStates.SHIP_DESTROYER] = foe_add_ship(DESTORYER_SIZE, GridStates.SHIP_DESTROYER);
+foe_pos[GridStates.SHIP_SUBMARINE] = foe_add_ship(SUBMARINE_SIZE, GridStates.SHIP_SUBMARINE);
+foe_pos[GridStates.SHIP_PATROL_A] = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_A);
+foe_pos[GridStates.SHIP_PATROL_B] = foe_add_ship(PATROL_SIZE, GridStates.SHIP_PATROL_B);
