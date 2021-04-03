@@ -125,3 +125,6 @@ for (var i = ds_list_size(game_status_logs) - 1; i >= 0; i--) {
 draw_set_colour(0x3399ff);
 draw_text(base_x + off_x, base_y + status_h - off_y - log_h * index++, "Combat Log:");
 draw_set_colour(c_black);
+
+part_system_update(true);
+part_system_drawit(true);
